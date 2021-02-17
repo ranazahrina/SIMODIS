@@ -9,7 +9,7 @@
   			<div class="sidebar-brand-icon ">
 				  <!-- <i class="fab fa-connectdevelop"></i> -->
 				  
-				  <img class="img-profile rounded-circle" style="height:70px" src="<?php echo base_url(); ?>assets/images/logomemore.jpg">
+				  <img class="img-profile rounded-circle" style="height:70px" src="<?php echo base_url(); ?>assets/images/Logosimodis.jpg">
   			</div>
   			<div class="sidebar-brand-text mx-3">SIMODIS</div>
   		</a>

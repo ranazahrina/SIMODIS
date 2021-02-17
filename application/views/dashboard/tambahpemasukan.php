@@ -7,7 +7,7 @@
   		<!-- Sidebar - Brand -->
   		<a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
   			<div class="sidebar-brand-icon ">
-				  <img class="img-profile rounded-circle" style="height:70px" src="<?php echo base_url(); ?>assets/images/logomemore.jpg">
+				  <img class="img-profile rounded-circle" style="height:70px" src="<?php echo base_url(); ?>assets/images/Logosimodis.jpg">
   			</div>
   			<div class="sidebar-brand-text mx-3">SIMODIS</div>
   		</a>

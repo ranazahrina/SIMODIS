@@ -2,7 +2,7 @@
 	<div class="d-flex justify-content-center">
 		<div class="container-login">
 			<?= $this->session->flashdata('message'); ?>
-			<img class="img-profile rounded-circle mx-auto d-block" style=" height:85px;" src="<?php echo base_url(); ?>assets/images/logomemore.jpg">
+			<img class="img-profile rounded-circle mx-auto d-block" style=" height:85px;" src="<?php echo base_url(); ?>assets/images/Logosimodis.jpg">
 			<h3 class="text-center mb-4">SIMODIS</h3>
 			<hr>
 			<form method="post" action="Login">
