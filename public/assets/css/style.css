@@ -22,12 +22,33 @@ body {
   color: black;
   text-align: center;
 }
+
 .pencarian {
   margin-top: 2%;
   margin-left: 50em;
   margin-bottom: 2%;
 }
 
-.content {
+.container-fluid {
+  height: 100%;
   background-color: white;
+}
+
+.wrapper {
+  background-color: rgb(199, 233, 243);
+  box-shadow: 0 3px 20px rgb(198, 235, 247);
+  border-radius: 15px;
+}
+
+.container-jenis {
+  width: full;
+  padding: 20px;
+  background-color: rgb(199, 233, 243);
+  box-shadow: 0 3px 20px rgb(198, 235, 247);
+  border-radius: 15px;
+}
+
+.button-dokumen {
+  margin-top: 2%;
+  margin-bottom: 2%;
 }

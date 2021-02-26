@@ -1,11 +1,10 @@
-<div class="content">
+<div class="container-fluid">
     <div class="container">
         <div class="row">
             <div class="col">
                 <h1 class="mt-2">Penambahan Data</h1>
                 <div class="container-tambahdata">
                     <a href="jenissurvey" class="btn btn-md btn-warning">Tambah Jenis Survey</a>
-                    <a href="responden" class="btn btn-md btn-warning">Tambah Responden</a>
                     <h1 class="mt-2"></h1>
                     <div class="form-group row">
                         <div class="col-md-2">
@@ -21,7 +20,7 @@
                             </select>
                         </div>
                         <div class="col-md-2">
-                            <label>Waktu Pelaksanaan</label>
+                            <label>Pelaksanaan</label>
                             <select class="form-control" id="category_name" name="category_name">
                                 <option selected="0">Waktu pelaksanaan</option>
                             </select>
@@ -91,5 +90,4 @@
             </div>
         </div>
     </div>
-</div>
 </div>

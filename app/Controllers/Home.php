@@ -48,17 +48,7 @@ class Home extends BaseController
 		echo view('layout/header', $data);
 		echo view('layout/sidebar');
 		echo view('layout/topbar');
-		echo view('home/dokumen');
-		echo view('layout/footer');
-	}
-
-	public function responden()
-	{
-		$data = ['tittle' => 'Jenis Survey | Simodis'];
-		echo view('layout/header', $data);
-		echo view('layout/sidebar');
-		echo view('layout/topbar');
-		echo view('home/dokumen');
+		echo view('home/jenissurvey');
 		echo view('layout/footer');
 	}
 

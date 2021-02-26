@@ -1,4 +1,4 @@
-<div class="content">
+<div class="container-fluid">
     <div class="container">
         <div class="row">
             <div class="col">
@@ -33,6 +33,12 @@
                             <input type="submit" name="submit" value="Simpan" class="btn btn-primary btn-block">
                         </div>
                     </div>
+                </div>
+                <h1 class="mt-2"></h1>
+                <div class="container-dokumen">
+                    <a href="dokumen" class="btn btn-md btn-warning">Dokumen perbulan 1</a>
+                    <a href="dokumen" class="btn btn-md btn-warning">Dokumen perbulan 2</a>
+                    <a href="dokumen" class="btn btn-md btn-warning">Dokumen perbulan 3</a>
                 </div>
                 <div class="pencarian">
                     <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
