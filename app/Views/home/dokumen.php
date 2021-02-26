@@ -6,44 +6,32 @@
                 <div class="container-tambahdata">
                     <h1 class="mt-2"></h1>
                     <div class="form-group row">
-                        <label class="col-md-1 col-form-label">Jenis Survey</label>
-                        <th>
-                            <div class="col-md-2 col-form-label">
-                                <select class="form-control" id="category_name" name="category_name">
-                                    <option selected="0">Jenis Survey</option>
-                                </select>
-                            </div>
-                        </th>
-                        <label class="col-md-1 col-form-label">Waktu Survey</label>
-                        <th>
-                            <div class="col-md-2 col-form-label">
-                                <select class="form-control" id="category_name" name="category_name">
-                                    <option selected="0">Waktu Survey</option>
-                                </select>
-                            </div>
-                        </th>
-                        <label class="col-md-1 col-form-label">Responden</label>
-                        <th>
-                            <div class="col-md-2 col-form-label">
-                                <select class="form-control" id="category_name" name="category_name">
-                                    <option selected="0">Responden</option>
-
-                                </select>
-                            </div>
-                        </th>
-                        <label class="col-md-1 col-form-label">Dokumen Masuk</label>
-                        <th>
-                            <div class="col-md-2 col-form-label">
-                                <select class="form-control" id="category_name" name="category_name">
-                                    <option selected="0">Dokumen Masuk</option>
-                                </select>
-                            </div>
-                        </th>
-                        <th>
-                            <div class="col-md-2 col-form-label">
-                                <a herf="" class="btn btn-success">Simpan</a>
-                            </div>
-                        </th>
+                        <div class="col-md-2">
+                            <label>Jenis Survey</label>
+                            <select class="form-control" id="category_name" name="category_name">
+                                <option selected="0">Jenis Survey</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <label>Waktu Survey</label>
+                            <select class="form-control" id="category_name" name="category_name">
+                                <option selected="0">Waktu Survey</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <label>Responden</label>
+                            <input type="text" name="petugas" class="form-control" placeholder=" Nama Responden">
+                        </div>
+                        <div class="col-md-2">
+                            <label>Dokumen Masuk</label>
+                            <select class="form-control" id="category_name" name="category_name">
+                                <option selected="0">Dokumen Masuk</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <label>Simpan</label>
+                            <input type="submit" name="submit" value="Simpan" class="btn btn-primary btn-block">
+                        </div>
                     </div>
                 </div>
                 <div class="pencarian">

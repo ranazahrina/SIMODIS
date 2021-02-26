@@ -4,23 +4,19 @@
             <div class="col">
                 <h1 class="mt-2">Per Survey</h1>
                 <div class="form-group row">
-                    <label class="col-md-1 col-form-label">Jenis Survey : </label>
-                    <th>
-                        <div class="col-md-2 col-form-label">
-                            <select class="form-control" id="category_name" name="category_name">
-                                <option selected="0">Jenis Survey</option>
-                            </select>
-                        </div>
-                    </th>
-                    <label class="col-md-1 col-form-label">By : </label>
-                    <th>
-                        <div class="col-md-2 col-form-label">
-                            <select class="form-control" id="category_name" name="category_name">
-                                <option selected="0">Responden</option>
-                                <option selected="0">Petugas</option>
-                            </select>
-                        </div>
-                    </th>
+                    <div class="col-md-2">
+                        <label>Jenis Survey : </label>
+                        <select class="form-control" id="category_name" name="category_name">
+                            <option selected="0">Jenis Survey</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <label>By : </label>
+                        <select class="form-control" id="category_name" name="category_name">
+                            <option selected="0">Responden</option>
+                            <option selected="0">Petugas</option>
+                        </select>
+                    </div>
                 </div>
             </div>
             <div class="pencarian">
