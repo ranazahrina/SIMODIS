@@ -36,7 +36,7 @@
 
     <!-- Nav Item - Dokumen Masuk -->
     <li class="nav-item">
-        <a class="nav-link" href="tables.html">
+        <a class="nav-link" href="<?php echo base_url('/home/dokumen') ?>">
             <i class="fas fa-fw fa-folder"></i>
             <span>Dokumen Masuk</span></a>
     </li>
@@ -50,8 +50,8 @@
         <div id="collapsePages" class="collapse show" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Lihat Data : </h6>
-                <a class="collapse-item" href="login.html">Per Survey</a>
-                <a class="collapse-item" href="register.html">Per Petugas</a>
+                <a class="collapse-item" href="<?php echo base_url('/home/persurvey') ?>">Per Survey</a>
+                <a class="collapse-item" href="<?php echo base_url('/home/perpetugas') ?>">Per Petugas</a>
                 <div class="collapse-divider"></div>
                 <h6 class="collapse-header">Other Pages:</h6>
                 <a class="collapse-item" href="404.html">404 Page</a>

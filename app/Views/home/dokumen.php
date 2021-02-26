@@ -2,10 +2,8 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <h1 class="mt-2">Penambahan Data</h1>
+                <h1 class="mt-2">DOKUMEN</h1>
                 <div class="container-tambahdata">
-                    <a href="jenissurvey" class="btn btn-md btn-warning">Tambah Jenis Survey</a>
-                    <a href="responden" class="btn btn-md btn-warning">Tambah Responden</a>
                     <h1 class="mt-2"></h1>
                     <div class="form-group row">
                         <label class="col-md-1 col-form-label">Jenis Survey</label>
@@ -24,25 +22,20 @@
                                 </select>
                             </div>
                         </th>
-                        <label class="col-md-1 col-form-label">Waktu Pelaksanaan</label>
-                        <th>
-                            <div class="col-md-2 col-form-label">
-                                <select class="form-control" id="category_name" name="category_name">
-                                    <option selected="0">Waktu Pelaksanaan</option>
-                                </select>
-                            </div>
-                        </th>
-                        <label class="col-md-1 col-form-label">Petugas</label>
-                        <th>
-                            <div class="col-md-2 col-form-label">
-                                <input type="text" name="petugas" class="form-control" placeholder=" Nama Petugas">
-                            </div>
-                        </th>
                         <label class="col-md-1 col-form-label">Responden</label>
                         <th>
                             <div class="col-md-2 col-form-label">
-                                <input type="text" name="responden" class="form-control" placeholder=" Nama Responden">
+                                <select class="form-control" id="category_name" name="category_name">
+                                    <option selected="0">Responden</option>
 
+                                </select>
+                            </div>
+                        </th>
+                        <label class="col-md-1 col-form-label">Dokumen Masuk</label>
+                        <th>
+                            <div class="col-md-2 col-form-label">
+                                <select class="form-control" id="category_name" name="category_name">
+                                    <option selected="0">Dokumen Masuk</option>
                                 </select>
                             </div>
                         </th>
@@ -67,7 +60,7 @@
                 </div>
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Penambahan Data</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">Dokumen Masuk</h6>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -77,10 +70,7 @@
                                         <th scope="col">No</th>
                                         <th scope="col">Jenis Survey</th>
                                         <th scope="col">Waktu Survey</th>
-                                        <th scope="col">Tanggal Pelaksanaan</th>
-                                        <th scope="col">Petugas</th>
-                                        <th scope="col">Respoden</th>
-                                        <th scope="col">Jumlah Responden</th>
+                                        <th scope="col">Dokumen Masuk</th>
                                         <th scope="col">Options</th>
                                     </tr>
                                 </thead>
@@ -88,12 +78,9 @@
                                     <?php $i = 1; ?>
                                     <tr>
                                         <th scope="row"><?= $i++; ?></th>
-                                        <td>Bps</td>
+                                        <td>Mark</td>
                                         <td>Otto</td>
                                         <td>@mdo</td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
                                         <td> <a href="" class="btn btn-warning">Edit</a> <a href="" class="btn btn-danger">Delete </a></td>
                                     </tr>
                                 </tbody>
