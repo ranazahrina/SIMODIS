@@ -71,20 +71,25 @@
                                     <th scope="col">Options</th>
                                 </tr>
                             </thead>
+
                             <tbody>
                                 <?php $i = 1; ?>
-                                <tr>
-                                    <th scope="row"><?= $i++; ?></th>
-                                    <td>Bps</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td> <a href="" class="btn btn-warning">Edit</a> <a href="" class="btn btn-danger">Delete </a></td>
+                                <?php foreach ($isidata as $k) : ?>
+                                    <tr>
+                                        <th scope="row"><?= $i++; ?></th>
+                                        <td><?= $k['jenis_survey']; ?></td>
+                                        <td><?= $k['waktu_survey']; ?></td>
+                                        <td><?= $k['dokumen_masuk']; ?></td>
+                                        <td><?= $k['nama_petugas']; ?></td>
+                                        <td><?= $k['responden']; ?></td>
+                                        <td></td>
+                                        <td> <a href="" class="btn btn-warning">Edit</a> <a href="" class="btn btn-danger">Delete </a></td>
+                                    </tr>
+                                <?php endforeach; ?>
                                 </tr>
                             </tbody>
                         </table>
+
                     </div>
                 </div>
             </div>

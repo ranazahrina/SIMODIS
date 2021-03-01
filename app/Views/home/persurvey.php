@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <h1 class="mt-2">Per Survey</h1>
+                <h1 class="mt-2">Per Petugas</h1>
                 <div class="form-group row">
                     <div class="col-md-2">
                         <label>Jenis Survey : </label>
@@ -33,7 +33,7 @@
             </div>
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Per Survey</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Per Petugas</h6>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -47,13 +47,15 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php $i = 1; ?>
-                                <tr>
-                                    <th scope="row"><?= $i++; ?></th>
-                                    <td>Bps</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                            </tbody>
+                                <?php $i = 1 ?>
+                                <?php foreach ($petugas as $k) : ?>
+                                    <tr>
+                                        <th scope="row"><?= $i++; ?></th>
+                                        <td><?= $k['nama_petugas']; ?></td>
+                                        <td><?= $k['target']; ?></td>
+                                        <td><?= $k['realisasi']; ?></td>
+                                    </tr>
+                                <?php endforeach; ?>
                         </table>
                     </div>
                 </div>

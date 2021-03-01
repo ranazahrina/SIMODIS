@@ -3,10 +3,22 @@
 namespace App\Controllers;
 
 use App\Models\databps;
+use App\Models\datasurveyModel;
+use App\Models\dataPetugasModel;
 
 class Home extends BaseController
 {
 	protected $request;
+	protected $databasesurvey;
+	protected $databasepetugas;
+	public function __construct()
+	{
+		$this->databasesurvey = new datasurveyModel();
+		$this->databasepetugas = new dataPetugasModel();
+	}
+
+
+
 
 	public function index()
 	{
@@ -67,17 +79,27 @@ class Home extends BaseController
 
 	public function datamasuk()
 	{
-		$data = ['tittle' => 'Penambahan Data | Simodis'];
+		$isidata = $this->databasesurvey->findAll();
+		$data = [
+			'tittle' => 'Penambahan Data | Simodis',
+			'isidata' => $isidata
+		];
+
 		echo view('layout/header', $data);
 		echo view('layout/sidebar');
 		echo view('layout/topbar');
-		echo view('home/datamasuk');
+		echo view('home/datamasuk', $data);
 		echo view('layout/footer');
 	}
 
 	public function dokumen()
 	{
-		$data = ['tittle' => 'Dokumen Masuk | Simodis'];
+		$isidata = $this->databasesurvey->findAll();
+		$data = [
+			'tittle' => 'Dokumen Masuk | Simodis',
+			'isidata' => $isidata
+		];
+
 		echo view('layout/header', $data);
 		echo view('layout/sidebar');
 		echo view('layout/topbar');
@@ -95,19 +117,28 @@ class Home extends BaseController
 		echo view('layout/footer');
 	}
 
-	public function persurvey()
+	public function perpetugas()
 	{
-		$data = ['tittle' => 'Per Survey | Simodis'];
+		$isidata = $this->databasepetugas->findAll();
+		$data = [
+			'tittle' => 'Per Survey | Simodis',
+			'petugas' => $isidata
+		];
 		echo view('layout/header', $data);
 		echo view('layout/sidebar');
 		echo view('layout/topbar');
-		echo view('home/persurvey');
+		echo view('home/persurvey', $data);
 		echo view('layout/footer');
 	}
 
-	public function perpetugas()
+	public function persurvey()
 	{
-		$data = ['tittle' => 'Per Petugas | Simodis'];
+		$isidata = $this->databasesurvey->findAll();
+		$data = [
+			'tittle' => 'Per Petugas | Simodis',
+			'isidata' => $isidata,
+
+		];
 		echo view('layout/header', $data);
 		echo view('layout/sidebar');
 		echo view('layout/topbar');

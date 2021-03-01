@@ -70,13 +70,15 @@
                                 </thead>
                                 <tbody>
                                     <?php $i = 1; ?>
-                                    <tr>
-                                        <th scope="row"><?= $i++; ?></th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                        <td> <a href="" class="btn btn-warning">Edit</a> <a href="" class="btn btn-danger">Delete </a></td>
-                                    </tr>
+                                    <?php foreach ($isidata as $k) : ?>
+                                        <tr>
+                                            <th scope="row"><?= $i++; ?></th>
+                                            <td><?= $k['jenis_survey']; ?></td>
+                                            <td><?= $k['waktu_survey']; ?></td>
+                                            <td><?= $k['dokumen_masuk']; ?></td>
+                                            <td> <a href="" class="btn btn-warning">Edit</a> <a href="" class="btn btn-danger">Delete </a></td>
+                                        </tr>
+                                    <?php endforeach; ?>
                                 </tbody>
                             </table>
                         </div>
