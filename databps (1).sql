@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 01, 2021 at 06:38 AM
+-- Generation Time: Mar 01, 2021 at 07:01 PM
 -- Server version: 10.4.17-MariaDB
--- PHP Version: 8.0.2
+-- PHP Version: 8.0.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -49,13 +49,24 @@ INSERT INTO `admin` (`id`, `name`, `email`, `password`) VALUES
 --
 
 CREATE TABLE `data` (
+  `id` int(111) NOT NULL,
   `responden` varchar(50) NOT NULL,
   `jenis_survey` varchar(50) NOT NULL,
   `waktu_pelaksanaan` varchar(30) NOT NULL,
   `waktu_survey` varchar(30) NOT NULL,
   `dokumen_masuk` varchar(50) NOT NULL,
-  `nama_petugas` varchar(30) NOT NULL
+  `nama_petugas` varchar(30) NOT NULL,
+  `target` varchar(255) NOT NULL,
+  `realisasi` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `data`
+--
+
+INSERT INTO `data` (`id`, `responden`, `jenis_survey`, `waktu_pelaksanaan`, `waktu_survey`, `dokumen_masuk`, `nama_petugas`, `target`, `realisasi`) VALUES
+(1, 'Aston', 'VHTS', 'JANUARI', '3 BULAN SEKALI ', '12-01-2020', 'suep', '', ''),
+(2, 'Horison', 'CTR', 'JANUARI', '3 BULAN SEKALI ', '12-02-2021', 'saipudin', '', '');
 
 -- --------------------------------------------------------
 
@@ -67,6 +78,14 @@ CREATE TABLE `jenis_survey` (
   `jenis_survey` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `jenis_survey`
+--
+
+INSERT INTO `jenis_survey` (`jenis_survey`) VALUES
+('CTR'),
+('VHTS');
+
 -- --------------------------------------------------------
 
 --
@@ -75,9 +94,17 @@ CREATE TABLE `jenis_survey` (
 
 CREATE TABLE `petugas` (
   `nama_petugas` varchar(30) NOT NULL,
-  `target` int(100) NOT NULL,
-  `realisasi` int(100) NOT NULL
+  `target` varchar(255) NOT NULL,
+  `realisasi` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `petugas`
+--
+
+INSERT INTO `petugas` (`nama_petugas`, `target`, `realisasi`) VALUES
+('saipudin', '3', '1'),
+('suep', '5', '3');
 
 --
 -- Indexes for dumped tables
@@ -93,6 +120,7 @@ ALTER TABLE `admin`
 -- Indexes for table `data`
 --
 ALTER TABLE `data`
+  ADD PRIMARY KEY (`id`),
   ADD KEY `nama_petugas` (`nama_petugas`),
   ADD KEY `jenis_survey` (`jenis_survey`);
 
@@ -119,6 +147,12 @@ ALTER TABLE `admin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
+-- AUTO_INCREMENT for table `data`
+--
+ALTER TABLE `data`
+  MODIFY `id` int(111) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- Constraints for dumped tables
 --
 
@@ -126,8 +160,8 @@ ALTER TABLE `admin`
 -- Constraints for table `data`
 --
 ALTER TABLE `data`
-  ADD CONSTRAINT `data_ibfk_2` FOREIGN KEY (`nama_petugas`) REFERENCES `petugas` (`nama_petugas`),
-  ADD CONSTRAINT `data_ibfk_3` FOREIGN KEY (`jenis_survey`) REFERENCES `jenis_survey` (`jenis_survey`);
+  ADD CONSTRAINT `data_ibfk_3` FOREIGN KEY (`jenis_survey`) REFERENCES `jenis_survey` (`jenis_survey`),
+  ADD CONSTRAINT `data_ibfk_4` FOREIGN KEY (`nama_petugas`) REFERENCES `petugas` (`nama_petugas`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
