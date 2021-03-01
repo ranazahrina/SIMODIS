@@ -75,6 +75,23 @@ class Home extends BaseController
 		echo view('layout/footer');
 	}
 
+	public function simpanData()
+	{
+		$data = array(
+			'responden' =>$this->input->post('responden'),
+			'jenis_survey' =>$this->input->post('survey'),
+			'waktu_pelaksanaan' =>$this->input->post('waktu_p'),
+			'waktu_survey' =>$this->input->post('waktu_s'),
+			'dokumen_masuk' =>$this->input->post(null),
+			'nama_petugas' =>$this->input->post('petugas')
+		);
+
+		$this->databps->add_data("data", $data);
+
+		$this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible"> Success! data berhasil disimpan
+                                                </div>');
+	}
+
 	public function dokumen()
 	{
 		$data = ['tittle' => 'Dokumen Masuk | Simodis'];
@@ -93,6 +110,15 @@ class Home extends BaseController
 		echo view('layout/topbar');
 		echo view('home/jenissurvey');
 		echo view('layout/footer');
+	}
+
+	public function simpanJenisSurvey()
+	{
+		$data = $this->input->post('jenissurvey');
+
+		$this->databps->add_data("jenis_survey", $data);
+		$this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible"> Success! data berhasil disimpan
+                                                </div>');
 	}
 
 	public function persurvey()
