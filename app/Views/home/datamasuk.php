@@ -16,7 +16,9 @@
                         <div class="col-md-2">
                             <label>Waktu Survey</label>
                             <select class="form-control" id="category_name" name="category_name">
-                                <option selected="0">Waktu Survey</option>
+                                <option selected="Bulanan">Bulanan</option>
+                                <option selected="Triwulan">Triwulan</option>
+                                <option selected="Tahunan">Tahunan</option>
                             </select>
                         </div>
                         <div class="col-md-2">
