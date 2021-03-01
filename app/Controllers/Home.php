@@ -127,7 +127,7 @@ class Home extends BaseController
 		echo view('layout/header', $data);
 		echo view('layout/sidebar');
 		echo view('layout/topbar');
-		echo view('home/persurvey', $data);
+		echo view('home/perpetugas', $data);
 		echo view('layout/footer');
 	}
 
@@ -135,14 +135,14 @@ class Home extends BaseController
 	{
 		$isidata = $this->databasesurvey->findAll();
 		$data = [
-			'tittle' => 'Per Petugas | Simodis',
+			'tittle' => 'Per Survey | Simodis',
 			'isidata' => $isidata,
 
 		];
 		echo view('layout/header', $data);
 		echo view('layout/sidebar');
 		echo view('layout/topbar');
-		echo view('home/perpetugas');
+		echo view('home/persurvey');
 		echo view('layout/footer');
 	}
 }

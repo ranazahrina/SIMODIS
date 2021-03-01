@@ -1,24 +1,7 @@
 <div class="container-fluid">
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <h1 class="mt-2">Per Petugas</h1>
-                <div class="form-group row">
-                    <div class="col-md-2">
-                        <label>Jenis Survey : </label>
-                        <select class="form-control" id="category_name" name="category_name">
-                            <option selected="0">Jenis Survey</option>
-                        </select>
-                    </div>
-                    <div class="col-md-2">
-                        <label>By : </label>
-                        <select class="form-control" id="category_name" name="category_name">
-                            <option selected="0">Responden</option>
-                            <option selected="0">Petugas</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
+    <div class="row">
+        <div class="col">
+            <h1 class="mt-2">Per Survey</h1>
             <div class="pencarian">
                 <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                     <div class="input-group">
@@ -33,7 +16,7 @@
             </div>
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Per Petugas</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Per Survey</h6>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -42,20 +25,25 @@
                                 <tr>
                                     <th scope="col">No</th>
                                     <th scope="col">Petugas</th>
+                                    <th scope="col">Jenis Survey</th>
+                                    <th scope="col">Tanggal Pelaksanaan</th>
                                     <th scope="col">Target</th>
-                                    <th scope="col">Realisasi</th>
+                                    <th scope="col">Relisasi</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php $i = 1 ?>
-                                <?php foreach ($petugas as $k) : ?>
+                                <?php $i = 1; ?>
+                                <?php foreach ($isidata as $k) : ?>
                                     <tr>
                                         <th scope="row"><?= $i++; ?></th>
                                         <td><?= $k['nama_petugas']; ?></td>
-                                        <td><?= $k['target']; ?></td>
-                                        <td><?= $k['realisasi']; ?></td>
+                                        <td><?= $k['jenis_survey']; ?></td>
+                                        <td><?= $k['dokumen_masuk']; ?></td>
+
+
                                     </tr>
                                 <?php endforeach; ?>
+                            </tbody>
                         </table>
                     </div>
                 </div>
