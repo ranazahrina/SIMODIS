@@ -45,8 +45,8 @@ class Home extends BaseController
 				];
 				$model->save($newData);
 				$session = session();
-				$session->setFlashdata('success', 'Berhasil Registrasi!');
-				return redirect()->to('/');
+				$session->setFlashdata('success', 'Berhasil Menambah Pengguna!');
+				return redirect()->to('register');
 			}
 		}
 
