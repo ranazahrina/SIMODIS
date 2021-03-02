@@ -44,6 +44,14 @@ class databps extends Model
       }
     }
 
+    public function get_all($tabel)
+    	{
+    		$query = $this->db->select('*')
+    			->from($tabel)
+    			->get();
+    		return $query->result_array();
+    	}
+
 /*    function update_data(){
       $resp=$this->input->post('responden');
       $survey=$this->input->post('survey');

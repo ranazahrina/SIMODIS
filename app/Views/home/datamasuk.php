@@ -8,37 +8,55 @@
                     <h1 class="mt-2"></h1>
                     <div class="form-group row">
                         <div class="col-md-2">
+                          <form class="user" method="post" action="<?= base_url('Home/jenissurvey'); ?>">
                             <label>Jenis Survey</label>
-                            <select class="form-control" id="category_name" name="category_name">
-                                <option selected="0">Jenis Survey</option>
+                            <select class="form-control" id="survey" name="survey" placeholder="Jenis Survey">
+                                    <option disabled selected>Jenis Survey</option>
+                            <?php foreach ($survey as $i) : ?>
+                                    <option value="<?= $i['jenis_survey']; ?>"> <?= $i['jenis_survey']; ?> </option>
+                            <?php endforeach; ?>
                             </select>
                         </div>
                         <div class="col-md-2">
                             <label>Waktu Survey</label>
-                            <select class="form-control" id="category_name" name="category_name">
-                                <option selected="Bulanan">Bulanan</option>
-                                <option selected="Triwulan">Triwulan</option>
-                                <option selected="Tahunan">Tahunan</option>
+                            <select class="form-control" id="waktu_s" name="waktu_s" placeholder="Waktu Survey">
+                                <option disabled selected>Waktu pelaksanaan</option>
+                                <option value="Bulanan">Bulanan</option>
+                                <option value="Triwulan">Triwulan</option>
+                                <option value="Tahunan">Tahunan</option>
                             </select>
                         </div>
                         <div class="col-md-2">
                             <label>Pelaksanaan</label>
-                            <select class="form-control" id="category_name" name="category_name">
-                                <option selected="0">Waktu pelaksanaan</option>
+                            <select class="form-control" id="pelaksanaan" name="pelaksanaan" placeholder="Waktu Pelaksanaan">
+                                <option disabled selected>Waktu pelaksanaan</option>
+                                <option value="JANUARI">JANUARI</option>
+                                <option value="FEBRUARI">FEBRUARI</option>
+                                <option value="MARET">MARET</option>
+                                <option value="APRIL">APRIL</option>
+                                <option value="MEI">MEI</option>
+                                <option value="JUNI">JUNI</option>
+                                <option value="JULI">JULI</option>
+                                <option value="AGUSTUS">AGUSTUS</option>
+                                <option value="SEPTEMBER">SEPTEMBER</option>
+                                <option value="OKTOBER">OKTOBER</option>
+                                <option value="NOVEMBER">NOVEMBER</option>
+                                <option value="DESEMBER">DESEMBER</option>
                             </select>
                         </div>
                         <div class="col-md-2">
                             <label>Petugas</label>
-                            <input type="text" name="petugas" class="form-control" placeholder=" Nama Petugas">
+                            <input type="text" name="petugas" class="form-control" placeholder="Nama Petugas">
                         </div>
                         <div class="col-md-2">
                             <label>Responden</label>
-                            <input type="text" name="petugas" class="form-control" placeholder=" Nama Responden">
+                            <input type="text" name="petugas" class="form-control" placeholder="Nama Responden">
                         </div>
                         <div class="col-md-2">
                             <label>Simpan</label>
                             <input type="submit" name="submit" value="Simpan" class="btn btn-primary btn-block">
                         </div>
+                      </form>
                     </div>
                 </div>
             </div>

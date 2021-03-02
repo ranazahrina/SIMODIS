@@ -11,10 +11,10 @@
             <?php endif; ?>
             <form method="post" action="Login">
                 <div class="form-group">
-                    <input type="email" class="form-control form-control-user" id="email" aria-describedby="emailHelp" placeholder="Enter Email Address..." value="">
+                    <input autofocus type="input" class="form-control" id="uname" name="uname" aria-describedby="emailHelp" placeholder="Username" value="<?= set_value('uname') ?>">
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control form-control-user" id="password" placeholder="Password" value="<?= set_value('email') ?>">
+                    <input type="password" class="form-control form-control-user" id="password" placeholder="Password" value="<?= set_value('password') ?>">
                 </div>
                 <?php if (isset($validation)) : ?>
                     <div class="col-12">
