@@ -6,16 +6,17 @@
                 <div class="container-tambahdata">
                     <a href="jenissurvey" class="btn btn-md btn-warning">Tambah Jenis Survey</a>
                     <h1 class="mt-2"></h1>
-                    <div class="form-group row">
+                    <from action="home/datamasuk" method="post" class="form-group row">
+                        <?= csrf_field(); ?>
                         <div class="col-md-2">
                             <label>Jenis Survey</label>
-                            <select class="form-control" id="category_name" name="category_name">
+                            <select class="form-control" id="jenis_survey" name="jenis_survey">
                                 <option selected="0">Jenis Survey</option>
                             </select>
                         </div>
                         <div class="col-md-2">
                             <label>Waktu Survey</label>
-                            <select class="form-control" id="category_name" name="category_name">
+                            <select class="form-control" id="waktu_survey" name="waktu_survey">
                                 <option selected="Bulanan">Bulanan</option>
                                 <option selected="Triwulan">Triwulan</option>
                                 <option selected="Tahunan">Tahunan</option>
@@ -23,23 +24,23 @@
                         </div>
                         <div class="col-md-2">
                             <label>Pelaksanaan</label>
-                            <select class="form-control" id="category_name" name="category_name">
+                            <select class="form-control" id="waktu_pelaksanaan" name="waktu_pelaksanaan">
                                 <option selected="0">Waktu pelaksanaan</option>
                             </select>
                         </div>
                         <div class="col-md-2">
                             <label>Petugas</label>
-                            <input type="text" name="petugas" class="form-control" placeholder=" Nama Petugas">
+                            <input type="text" name="nama_petugas" class="form-control" placeholder=" Nama Petugas">
                         </div>
                         <div class="col-md-2">
                             <label>Responden</label>
-                            <input type="text" name="petugas" class="form-control" placeholder=" Nama Responden">
+                            <input type="text" name="responden" class="form-control" placeholder=" Nama Responden">
                         </div>
                         <div class="col-md-2">
                             <label>Simpan</label>
                             <input type="submit" name="submit" value="Simpan" class="btn btn-primary btn-block">
                         </div>
-                    </div>
+                    </from>
                 </div>
             </div>
             <div class="pencarian">

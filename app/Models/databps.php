@@ -6,34 +6,34 @@ use CodeIgniter\Model;
 
 class databps extends Model
 {
-    protected $table = 'admin';
-    protected $allowedFields = ['name', 'email', 'password'];
-    protected $beforeInsert = ['beforeInsert'];
-    protected $beforeUpdate = ['beforeUpdate'];
+  protected $table = 'admin';
+  protected $allowedFields = ['name', 'email', 'password'];
+  protected $beforeInsert = ['beforeInsert'];
+  protected $beforeUpdate = ['beforeUpdate'];
 
-    protected function beforeInsert(array $data)
-    {
-        $data = $this->passwordHash($data);
+  protected function beforeInsert(array $data)
+  {
+    $data = $this->passwordHash($data);
 
-        return $data;
-    }
+    return $data;
+  }
 
-    protected function beforeUpdate(array $data)
-    {
-        $data = $this->passwordHash($data);
+  protected function beforeUpdate(array $data)
+  {
+    $data = $this->passwordHash($data);
 
-        return $data;
-    }
+    return $data;
+  }
 
-    protected function passwordHash(array $data)
-    {
-        if (isset($data['data']['password']))
-            $data['data']['password'] = password_hash($data['data']['password'], PASSWORD_DEFAULT);
+  protected function passwordHash(array $data)
+  {
+    if (isset($data['data']['password']))
+      $data['data']['password'] = password_hash($data['data']['password'], PASSWORD_DEFAULT);
 
-        return $data;
-    }
+    return $data;
+  }
 
-    function add_data($table, $data)
+  /* function add_data($table, $data)
     {
       $query = $this->db->insert($table, $data);
 
