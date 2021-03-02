@@ -6,9 +6,10 @@
                 <div class="container-tambahdata">
                     <a href="jenissurvey" class="btn btn-md btn-warning">Tambah Jenis Survey</a>
                     <h1 class="mt-2"></h1>
-                    <div class="form-group row">
+                    <from action="home/datamasuk" method="post" class="form-group row">
+                        <?= csrf_field(); ?>
                         <div class="col-md-2">
-                          <form class="user" method="post" action="<?= base_url('Home/jenissurvey'); ?>">
+                          <form class="user" method="post" action="<?= base_url('Home/datamasuk'); ?>">
                             <label>Jenis Survey</label>
                             <select class="form-control" id="survey" name="survey" placeholder="Jenis Survey">
                                     <option disabled selected>Jenis Survey</option>
@@ -46,11 +47,11 @@
                         </div>
                         <div class="col-md-2">
                             <label>Petugas</label>
-                            <input type="text" name="petugas" class="form-control" placeholder="Nama Petugas">
+                            <input type="text" name="nama_petugas" class="form-control" placeholder=" Nama Petugas">
                         </div>
                         <div class="col-md-2">
                             <label>Responden</label>
-                            <input type="text" name="petugas" class="form-control" placeholder="Nama Responden">
+                            <input type="text" name="responden" class="form-control" placeholder=" Nama Responden">
                         </div>
                         <div class="col-md-2">
                             <label>Simpan</label>
