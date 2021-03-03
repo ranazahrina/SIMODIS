@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col">
-            <h1 class="mt-2">Per Survey</h1>
+            <h1 class="mt-2">Per Petugas</h1>
             <div class="pencarian">
                 <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                     <div class="input-group">
@@ -16,7 +16,7 @@
             </div>
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Per Survey</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Per Petugas</h6>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">

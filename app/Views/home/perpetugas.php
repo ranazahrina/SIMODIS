@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <h1 class="mt-2">Per Petugas</h1>
+                <h1 class="mt-2">Per Survey</h1>
                 <div class="form-group row">
                     <div class="col-md-2">
                         <label>Jenis Survey : </label>

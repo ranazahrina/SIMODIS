@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col">
                 <h1 class="mt-2">Penambahan Data</h1>
-                <div class="tambahdata">
+                <div class="container-tambahdata">
                     <a href="jenissurvey" class="btn btn-md btn-warning">Tambah Jenis Survey</a>
                     <h1 class="mt-2"></h1>
                     <form action="/survei/save" method="post">
