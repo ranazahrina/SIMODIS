@@ -24,15 +24,15 @@ class Home extends BaseController
 
 	public function index()
 	{
-				$data = ['tittle' => 'Login | Simodis'];
-				helper(['form']);
+		$data = ['tittle' => 'Login | Simodis'];
+		helper(['form']);
 
-				echo view('layout/header', $data);
-				echo view('login/login');
-				echo view('layout/footer');
+		echo view('layout/header', $data);
+		echo view('login/login');
+		echo view('layout/footer');
 	}
 
-/*	private function login()
+	/*	private function login()
 	{
 		$name = $this->input->post('uname');
 		$pass = $this->input->post('password');
@@ -109,7 +109,7 @@ class Home extends BaseController
 
 	public function datamasuk()
 	{
-		helper(['form']);
+		// helper(['form']);
 		/*if ($this->request->getMethod() == 'post') {
 			$rules = [
 				'jenis_survey' => 'required',
@@ -138,47 +138,48 @@ class Home extends BaseController
 			return redirect()->to('datamasuk');
 		}*/
 		$isidata = $this->databasesurvey->findAll();
+
 		$survey = $this->databasejenissurvey->findAll();
 		$data = [
 			'tittle' => 'Penambahan Data | Simodis',
 			'isidata' => $isidata,
 			'survey' => $survey
 		];
-		helper(['form']);
+		// helper(['form']);
 
-		if ($this->request->getMethod() == 'post') {
-			$rules = [
-				'survey' => 'required',
-				'waktu_s' => 'required',
-				'pelaksanaan' => 'required',
-				'petugas' => 'required',
-				'responden' => 'required'
-			];
+		// if ($this->request->getMethod() == 'post') {
+		// 	$rules = [
+		// 		'survey' => 'required',
+		// 		'waktu_s' => 'required',
+		// 		'pelaksanaan' => 'required',
+		// 		'petugas' => 'required',
+		// 		'responden' => 'required'
+		// 	];
 
-			if (!$this->validate($rules)) {
-				$data['validation'] = $this->validator;
-			} else {
+		// 	if (!$this->validate($rules)) {
+		// 		$data['validation'] = $this->validator;
+		// 	} else {
 
-				$newData = [
-					'responden' => $this->request->getVar("responden"),
-					'survey' => $this->request->getVar("jenis_survey"),
-					'waktu_p' => $this->request->getVar("waktu_pelaksanaan"),
-					'waktu_s' => $this->request->getVar("waktu_survey"),
-					'dokumen' => $this->request->getVar("dokumen_masuk"),
-					'petugas' => $this->request->getVar("nama_petugas"),
-					'target' => $this->request->getVar("target"),
-					'realisasi' => $this->request->getVar("realisasi")
-				];
-				$this->model->add_data("data", $newData);
-				$session = session();
-				$session->setFlashdata('success', 'Berhasil Menambah Data!');
-				return redirect()->to('datamasuk');
-			}
-		}
+		// 		$newData = [
+		// 			'responden' => $this->request->getVar("responden"),
+		// 			'survey' => $this->request->getVar("jenis_survey"),
+		// 			'waktu_p' => $this->request->getVar("waktu_pelaksanaan"),
+		// 			'waktu_s' => $this->request->getVar("waktu_survey"),
+		// 			'dokumen' => $this->request->getVar("dokumen_masuk"),
+		// 			'petugas' => $this->request->getVar("nama_petugas"),
+		// 			'target' => $this->request->getVar("target"),
+		// 			'realisasi' => $this->request->getVar("realisasi")
+		// 		];
+		// 		$this->model->add_data("data", $newData);
+		// 		$session = session();
+		// 		$session->setFlashdata('success', 'Berhasil Menambah Data!');
+		// 		return redirect()->to('datamasuk');
+		// 	}
+		// }
 		echo view('layout/header', $data);
 		echo view('layout/sidebar');
 		echo view('layout/topbar');
-		echo view('home/datamasuk', $data);
+		echo view('home/datamasuk_1', $data);
 		echo view('layout/footer');
 	}
 
@@ -199,33 +200,47 @@ class Home extends BaseController
 
 	public function jenissurvey()
 	{
-		$data = ['tittle' => 'Jenis Survey | Simodis'];
-		helper(['form']);
+		$data = [
+			'tittle' => 'Jenis Survey | Simodis',
 
-		if ($this->request->getMethod() == 'post') {
-			$rules = [
-				'survey' => 'required'
-			];
+		];
 
-			if (!$this->validate($rules)) {
-				$data['validation'] = $this->validator;
-			} else {
+		// helper(['form']);
 
-				$newData = [
-					'survey' => $this->request->getVar("jenis_survey")
-				];
+		// if ($this->request->getMethod() == 'post') {
+		// 	$rules = [
+		// 		'survey' => 'required'
+		// 	];
 
-				$this->model->insert($newData);
-				$session = session();
-				$session->setFlashdata('success', 'Berhasil Menambah Data!');
-				return redirect()->to('jenissurvey');
-			}
-		}
+		// 	if (!$this->validate($rules)) {
+		// 		$data['validation'] = $this->validator;
+		// 	} else {
+
+		// 		$newData = [
+		// 			'survey' => $this->request->getVar("jenis_survey")
+		// 		];
+
+		// 		$this->model->insert($newData);
+		// 		$session = session();
+		// 		$session->setFlashdata('success', 'Berhasil Menambah Data!');
+		// 		return redirect()->to('jenissurvey');
+		// 	}
+		// }
 		echo view('layout/header', $data);
 		echo view('layout/sidebar');
 		echo view('layout/topbar');
 		echo view('home/jenissurvey');
 		echo view('layout/footer');
+	}
+
+	public function tambahjenissurvey()
+	{
+		$request = service('request');
+		$this->databasejenissurvey->save([
+			'jenis_survey' => $request->getVar('survey')
+		]);
+		session()->setFlashdata('Pesan', 'Data berhasil ditambahkan');
+		return redirect()->to('/home/jenissurvey');
 	}
 
 	public function perpetugas()

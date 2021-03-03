@@ -7,5 +7,5 @@ use CodeIgniter\Model;
 class dataJenisSurveyModel extends Model
 {
     protected $table = 'jenis_survey';
-    protected $useTimestamps = true;
+    protected $allowedFields = ['jenis_survey'];
 }
