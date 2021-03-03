@@ -179,7 +179,7 @@ class Home extends BaseController
 		echo view('layout/header', $data);
 		echo view('layout/sidebar');
 		echo view('layout/topbar');
-		echo view('home/datamasuk_1', $data);
+		echo view('home/datamasuk', $data);
 		echo view('layout/footer');
 	}
 
