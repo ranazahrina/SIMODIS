@@ -2,44 +2,27 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <h1 class="mt-2">DOKUMEN</h1>
-                <div class="container-tambahdata">
-                    <h1 class="mt-2"></h1>
+                <h1 class="mt-2">Dokumen Masuk</h1>
+                <form action="" method="post">
+                    <?= csrf_field(); ?>
                     <div class="form-group row">
                         <div class="col-md-2">
-                            <label>Jenis Survey</label>
+                            <label>Jenis Survey : </label>
                             <select class="form-control" id="category_name" name="category_name">
                                 <option selected="0">Jenis Survey</option>
                             </select>
                         </div>
                         <div class="col-md-2">
-                            <label>Waktu Survey</label>
+                            <label>Waktu Survey : </label>
                             <select class="form-control" id="category_name" name="category_name">
-                                <option selected="0">Waktu Survey</option>
+                                <option disabled selected>Bulan pelaksanaan</option>
+                                <option value="Bulanan">Bulanan</option>
+                                <option value="Triwulan">Triwulan</option>
+                                <option value="Tahunan">Tahunan</option>
                             </select>
-                        </div>
-                        <div class="col-md-2">
-                            <label>Responden</label>
-                            <input type="text" name="petugas" class="form-control" placeholder=" Nama Responden">
-                        </div>
-                        <div class="col-md-2">
-                            <label>Dokumen Masuk</label>
-                            <select class="form-control" id="category_name" name="category_name">
-                                <option selected="0">Dokumen Masuk</option>
-                            </select>
-                        </div>
-                        <div class="col-md-2">
-                            <label>Simpan</label>
-                            <input type="submit" name="submit" value="Simpan" class="btn btn-primary btn-block">
                         </div>
                     </div>
-                </div>
-                <h1 class="mt-2"></h1>
-                <div class="container-dokumen">
-                    <a href="dokumen" class="btn btn-md btn-warning">Dokumen perbulan 1</a>
-                    <a href="dokumen" class="btn btn-md btn-warning">Dokumen perbulan 2</a>
-                    <a href="dokumen" class="btn btn-md btn-warning">Dokumen perbulan 3</a>
-                </div>
+                </form>
                 <div class="pencarian">
                     <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">

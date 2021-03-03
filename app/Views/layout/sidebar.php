@@ -13,13 +13,11 @@
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
-    <?php if (session()->get('isLoggedIn')) : ?>
-        <li class="nav-item">
-            <a class="nav-link" href="<?php echo base_url('/home/home') ?>">
-                <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>Homepage</span></a>
-        </li>
-    <?php endif; ?>
+    <li class="nav-item">
+        <a class="nav-link" href="<?php echo base_url('/home/home') ?>">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Homepage</span></a>
+    </li>
     <!-- Divider -->
     <hr class="sidebar-divider">
 
