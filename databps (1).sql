@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 01, 2021 at 07:01 PM
+-- Generation Time: Mar 03, 2021 at 05:30 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.0
 
@@ -65,8 +65,7 @@ CREATE TABLE `data` (
 --
 
 INSERT INTO `data` (`id`, `responden`, `jenis_survey`, `waktu_pelaksanaan`, `waktu_survey`, `dokumen_masuk`, `nama_petugas`, `target`, `realisasi`) VALUES
-(1, 'Aston', 'VHTS', 'JANUARI', '3 BULAN SEKALI ', '12-01-2020', 'suep', '', ''),
-(2, 'Horison', 'CTR', 'JANUARI', '3 BULAN SEKALI ', '12-02-2021', 'saipudin', '', '');
+(1, 'Aston', 'VHTS', 'JANUARI', '3 BULAN SEKALI ', '12-01-2020', 'suep', '', '');
 
 -- --------------------------------------------------------
 
@@ -84,6 +83,7 @@ CREATE TABLE `jenis_survey` (
 
 INSERT INTO `jenis_survey` (`jenis_survey`) VALUES
 ('CTR'),
+('dsdsw'),
 ('VHTS');
 
 -- --------------------------------------------------------
@@ -150,18 +150,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `data`
 --
 ALTER TABLE `data`
-  MODIFY `id` int(111) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `data`
---
-ALTER TABLE `data`
-  ADD CONSTRAINT `data_ibfk_3` FOREIGN KEY (`jenis_survey`) REFERENCES `jenis_survey` (`jenis_survey`),
-  ADD CONSTRAINT `data_ibfk_4` FOREIGN KEY (`nama_petugas`) REFERENCES `petugas` (`nama_petugas`);
+  MODIFY `id` int(111) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
