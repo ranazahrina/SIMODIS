@@ -3,13 +3,16 @@
         <div class="row">
             <div class="col">
                 <h1 class="mt-2">Dokumen Masuk</h1>
-                <form action="" method="post">
+                <form action="/dokumenmasuk/save" method="post">
                     <?= csrf_field(); ?>
                     <div class="form-group row">
                         <div class="col-md-2">
                             <label>Jenis Survey : </label>
-                            <select class="form-control" id="category_name" name="category_name">
-                                <option selected="0">Jenis Survey</option>
+                            <select class="form-control" id="jenis_survey" name="jenis_survey" placeholder="Waktu Survey">
+                                <option disabled selected>Jenis survey</option>
+                                <?php foreach ($jenis as $a) : ?>
+                                    <option value="<?= $a['jenis_survey']; ?>"> <?= $a['jenis_survey']; ?> </option>
+                                <?php endforeach; ?>
                             </select>
                         </div>
                         <div class="col-md-2">
@@ -59,7 +62,11 @@
                                             <td><?= $k['jenis_survey']; ?></td>
                                             <td><?= $k['waktu_survey']; ?></td>
                                             <td><?= $k['dokumen_masuk']; ?></td>
-                                            <td> <a href="" class="btn btn-warning">Edit</a> <a href="" class="btn btn-danger">Delete </a></td>
+                                            <td> <a href="/survei/edit/<?= $k['id']; ?>" class="btn btn-warning">Edit</a>
+                                                <form action="/survei/<?= $k['id']; ?>" method="post" class="d-inline">
+                                                    <?= csrf_field(); ?>
+                                                    <input type="hidden" name="_method" value="DELETE">
+                                                    <button type="submit" class="btn btn-danger">Delete</button>
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>

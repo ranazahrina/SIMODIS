@@ -13,7 +13,10 @@
             <div class="form-group">
                 <form class="user" method="post" action="<?= base_url('Home/tambahjenissurvey'); ?>">
                     <label for="text">Jenis Survey</label>
-                    <input type="text" name="survey" class="form-control" placeholder="Jenis Survey">
+                    <input type="text" name="survey" class="form-control <?= ($validation->hasError('survey')) ? 'is-invalid' : ''; ?>" placeholder="Jenis Survey">
+                    <div class="invalid-feedback">
+                        <?= $validation->getError('survey'); ?>
+                    </div>
             </div>
 
             <button type="submit" class="btn btn-md btn-success" onchange="this.form.submit()">Simpan</button>

@@ -106,9 +106,15 @@ class Home extends BaseController
 		echo view('home/home');
 		echo view('layout/footer');
 	}
+	public function search()
+	{
+		$request = service('request');
+		d($request->getVar('keyword'));
+	}
 
 	public function datamasuk()
 	{
+
 		// helper(['form']);
 		/*if ($this->request->getMethod() == 'post') {
 			$rules = [
@@ -143,7 +149,8 @@ class Home extends BaseController
 		$data = [
 			'tittle' => 'Penambahan Data | Simodis',
 			'isidata' => $isidata,
-			'survey' => $survey
+			'survey' => $survey,
+			'validation' => \Config\Services::validation()
 		];
 		// helper(['form']);
 
@@ -186,9 +193,11 @@ class Home extends BaseController
 	public function dokumen()
 	{
 		$isidata = $this->databasesurvey->findAll();
+		$survey = $this->databasejenissurvey->findAll();
 		$data = [
 			'tittle' => 'Dokumen Masuk | Simodis',
-			'isidata' => $isidata
+			'isidata' => $isidata,
+			'jenis' => $survey
 		];
 
 		echo view('layout/header', $data);
@@ -200,8 +209,10 @@ class Home extends BaseController
 
 	public function jenissurvey()
 	{
+
 		$data = [
 			'tittle' => 'Jenis Survey | Simodis',
+			'validation' => \Config\Services::validation()
 
 		];
 
@@ -235,6 +246,20 @@ class Home extends BaseController
 
 	public function tambahjenissurvey()
 	{
+		if (!$this->validate([
+			'survey' => [
+				'rules' => 'required|is_unique[jenis_survey.jenis_survey]',
+				'errors' => [
+					'required' => 'field jenissurvey harus diisi.',
+					'is_unique' => 'field jenissurvey sudah terdaftar'
+				]
+
+			]
+
+		])) {
+			$validation = \Config\Services::validation();
+			return redirect()->to('/home/jenissurvey')->withInput()->with('validation', $validation);
+		}
 		$request = service('request');
 		$this->databasejenissurvey->save([
 			'jenis_survey' => $request->getVar('survey')
