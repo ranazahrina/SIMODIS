@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 03, 2021 at 05:30 AM
+-- Generation Time: Mar 04, 2021 at 03:57 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.0
 
@@ -65,7 +65,11 @@ CREATE TABLE `data` (
 --
 
 INSERT INTO `data` (`id`, `responden`, `jenis_survey`, `waktu_pelaksanaan`, `waktu_survey`, `dokumen_masuk`, `nama_petugas`, `target`, `realisasi`) VALUES
-(1, 'Aston', 'VHTS', 'JANUARI', '3 BULAN SEKALI ', '12-01-2020', 'suep', '', '');
+(156, 'OYO', 'CTR', ' JANUARI', 'Bulanan', '', 'Saipudin', '', ''),
+(157, 'OYO', 'CTR', ' JANUARI', 'Bulanan', '', 'Joko', '', ''),
+(158, 'Aston', 'HKF', 'FEBRUARI', 'Triwulan', '', 'Triyono', '', ''),
+(159, 'OYO', 'CTR', 'MARET', 'Bulanan', '', 'Sugeng', '', ''),
+(160, 'RedDorz', 'CTR', ' JANUARI', 'Bulanan', '', 'Joko', '', '');
 
 -- --------------------------------------------------------
 
@@ -83,7 +87,8 @@ CREATE TABLE `jenis_survey` (
 
 INSERT INTO `jenis_survey` (`jenis_survey`) VALUES
 ('CTR'),
-('dsdsw'),
+('HKF'),
+('HMR'),
 ('VHTS');
 
 -- --------------------------------------------------------
@@ -93,18 +98,21 @@ INSERT INTO `jenis_survey` (`jenis_survey`) VALUES
 --
 
 CREATE TABLE `petugas` (
-  `nama_petugas` varchar(30) NOT NULL,
   `target` varchar(255) NOT NULL,
-  `realisasi` varchar(255) NOT NULL
+  `realisasi` varchar(255) NOT NULL,
+  `nama_petugas` varchar(255) NOT NULL,
+  `id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `petugas`
 --
 
-INSERT INTO `petugas` (`nama_petugas`, `target`, `realisasi`) VALUES
-('saipudin', '3', '1'),
-('suep', '5', '3');
+INSERT INTO `petugas` (`target`, `realisasi`, `nama_petugas`, `id`) VALUES
+('1', '0', 'Saipudin', 127),
+('2', '0', 'Joko', 128),
+('1', '0', 'Triyono', 129),
+('1', '0', 'Sugeng', 130);
 
 --
 -- Indexes for dumped tables
@@ -134,7 +142,7 @@ ALTER TABLE `jenis_survey`
 -- Indexes for table `petugas`
 --
 ALTER TABLE `petugas`
-  ADD PRIMARY KEY (`nama_petugas`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -150,7 +158,13 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `data`
 --
 ALTER TABLE `data`
-  MODIFY `id` int(111) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(111) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=161;
+
+--
+-- AUTO_INCREMENT for table `petugas`
+--
+ALTER TABLE `petugas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=131;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
