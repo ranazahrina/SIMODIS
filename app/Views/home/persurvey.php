@@ -26,7 +26,7 @@
                                     <th scope="col">No</th>
                                     <th scope="col">Petugas</th>
                                     <th scope="col">Jenis Survey</th>
-                                    <th scope="col">Tanggal Pelaksanaan</th>
+                                    <th scope="col">Waktu Pelaksanaan</th>
                                     <th scope="col">Target</th>
                                     <th scope="col">Relisasi</th>
                                 </tr>

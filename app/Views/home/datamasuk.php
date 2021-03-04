@@ -65,12 +65,16 @@
                 </div>
             </div>
             <div class="pencarian">
-                <div class="input-group mb-3">
-                    <form action="/home/search" method="post">
-                        <input type="text" class="form-control" placeholder="Search" aria-label="Recipient's username" aria-describedby="button-addon2" name='keyword'>
-                        <button class="btn btn-outline-secondary" type="button" id="button-addon2" name='submit' onchange="this.form.submit()">cari</button>
-                    </form>
-                </div>
+                <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                    <div class="input-group">
+                        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="button">
+                                <i class="fas fa-search fa-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
             </div>
             <div class="col-md-4">
                 <?php if (session()->getFlashdata('berhasil')) : ?>
@@ -92,7 +96,7 @@
                                 <th scope="col">No</th>
                                 <th scope="col">Jenis Survey</th>
                                 <th scope="col">Waktu Survey</th>
-                                <th scope="col">Tanggal Pelaksanaan</th>
+                                <th scope="col">Waktu Pelaksanaan</th>
                                 <th scope="col">Petugas</th>
                                 <th scope="col">Respoden</th>
                                 <th scope="col">Options</th>

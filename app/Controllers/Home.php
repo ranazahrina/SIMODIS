@@ -296,4 +296,19 @@ class Home extends BaseController
 		echo view('home/persurvey');
 		echo view('layout/footer');
 	}
+
+	public function editdokumen()
+	{
+
+		$data = [
+			'tittle' => 'Per Survey | Simodis',
+
+
+		];
+		echo view('layout/header', $data);
+		echo view('layout/sidebar');
+		echo view('layout/topbar');
+		echo view('home/editdokumen');
+		echo view('layout/footer');
+	}
 }

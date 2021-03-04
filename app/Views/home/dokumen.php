@@ -50,6 +50,8 @@
                                         <th scope="col">No</th>
                                         <th scope="col">Jenis Survey</th>
                                         <th scope="col">Waktu Survey</th>
+                                        <th scope="col">Waktu Pelaksanaan</th>
+                                        <th scope="col">Respoden</th>
                                         <th scope="col">Dokumen Masuk</th>
                                         <th scope="col">Options</th>
                                     </tr>
@@ -61,8 +63,10 @@
                                             <th scope="row"><?= $i++; ?></th>
                                             <td><?= $k['jenis_survey']; ?></td>
                                             <td><?= $k['waktu_survey']; ?></td>
-                                            <td><?= $k['dokumen_masuk']; ?></td>
-                                            <td> <a href="/survei/edit/<?= $k['id']; ?>" class="btn btn-warning">Edit</a>
+                                            <td>waktu pelaksanaan</td>
+                                            <td><?= $k['responden']; ?></td>
+                                            <td><input type="date" id="birthday" name="birthday"><?= $k['dokumen_masuk']; ?></td>
+                                            <td>
                                                 <form action="/survei/<?= $k['id']; ?>" method="post" class="d-inline">
                                                     <?= csrf_field(); ?>
                                                     <input type="hidden" name="_method" value="DELETE">
