@@ -110,7 +110,7 @@
                                     <th scope="row"><?= $i++; ?></th>
                                     <td><?= $k['jenis_survey']; ?></td>
                                     <td><?= $k['waktu_survey']; ?></td>
-                                    <td><?= $k['dokumen_masuk']; ?></td>
+                                    <td><?= $k['waktu_pelaksanaan']; ?></td>
                                     <td><?= $k['nama_petugas']; ?></td>
                                     <td><?= $k['responden']; ?></td>
                                     <td> <a href="/survei/edit/<?= $k['id']; ?>" class="btn btn-warning">Edit</a>

@@ -38,6 +38,20 @@
                         </div>
                     </form>
                 </div>
+                <div class="col-md-4">
+                    <?php if (session()->getFlashdata('berhasil')) : ?>
+                        <div class="alert alert-danger" role="alert">
+                            <?= session()->getFlashdata('berhasil'); ?>
+                        </div>
+                    <?php endif; ?>
+                </div>
+                <div class="col-md-4">
+                    <?php if (session()->getFlashdata('taksuk')) : ?>
+                        <div class="alert alert-success" role="alert">
+                            <?= session()->getFlashdata('taksuk'); ?>
+                        </div>
+                    <?php endif; ?>
+                </div>
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
                         <h6 class="m-0 font-weight-bold text-primary">Dokumen Masuk</h6>
@@ -63,14 +77,22 @@
                                             <th scope="row"><?= $i++; ?></th>
                                             <td><?= $k['jenis_survey']; ?></td>
                                             <td><?= $k['waktu_survey']; ?></td>
-                                            <td>waktu pelaksanaan</td>
+                                            <td><?= $k['waktu_pelaksanaan']; ?></td>
                                             <td><?= $k['responden']; ?></td>
-                                            <td><input type="date" id="birthday" name="birthday"><?= $k['dokumen_masuk']; ?></td>
                                             <td>
-                                                <form action="/survei/<?= $k['id']; ?>" method="post" class="d-inline">
+                                                <form action="/survei/taksuk/<?= $k['id']; ?>" method="post">
+
+                                                    <input type="date" id="birthday" name="tanggal_masuk" onchange="this.form.submit() " value="<?= $k['dokumen_masuk']; ?>">
+
+                                                </form>
+                                            </td>
+                                            <td>
+                                                <form action="/survei/<?= $k['id']; ?>/doksuk" method="post" class="d-inline">
                                                     <?= csrf_field(); ?>
                                                     <input type="hidden" name="_method" value="DELETE">
                                                     <button type="submit" class="btn btn-danger">Delete</button>
+                                                </form>
+                                            </td>
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>

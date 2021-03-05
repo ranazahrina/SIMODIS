@@ -7,12 +7,14 @@ use App\Models\datasurveyModel;
 use App\Models\dataPetugasModel;
 use App\Models\dataJenisSurveyModel;
 
+
 class Home extends BaseController
 {
 	protected $request;
 	protected $databps;
 	protected $databasesurvey;
 	protected $databasepetugas;
+
 	public function __construct()
 	{
 		$this->model = new databps();
@@ -106,10 +108,20 @@ class Home extends BaseController
 		echo view('home/home');
 		echo view('layout/footer');
 	}
+
+	public function test()
+	{
+		$data = ['tittle' => 'Homepage | testing'];
+		echo view('layout/header', $data);
+		echo view('layout/sidebar');
+		echo view('layout/topbar');
+		echo view('home/test');
+		echo view('layout/footer');
+	}
 	public function search()
 	{
 		$request = service('request');
-		d($request->getVar('keyword'));
+		dd($request->getVar('keyword'));
 	}
 
 	public function datamasuk()
@@ -192,6 +204,10 @@ class Home extends BaseController
 
 	public function dokumen()
 	{
+
+
+		// $test = $this->gabungdata->get_all();
+		// dd($test);
 		$isidata = $this->databasesurvey->findAll();
 		$survey = $this->databasejenissurvey->findAll();
 		$data = [
@@ -284,10 +300,15 @@ class Home extends BaseController
 
 	public function persurvey()
 	{
-		$isidata = $this->databasesurvey->findAll();
+		$db      = \Config\Database::connect();
+		$builder = $db->table('data');
+		$query = $builder->join('petugas', 'petugas.nama_petugas=data.nama_petugas')->get()->getResultArray();
+
+
+
 		$data = [
 			'tittle' => 'Per Survey | Simodis',
-			'isidata' => $isidata,
+			'isi' => $query
 
 		];
 		echo view('layout/header', $data);

@@ -10,7 +10,8 @@
                             <div class="col-md-2">
                                 <label>Jenis Survey</label>
                                 <select class="form-control" id="jenis_survey" name="jenis_survey" placeholder="<?= $data['jenis_survey']; ?>">
-                                    <option disabled selected="<?= $data['jenis_survey']; ?>"> <?= $data['jenis_survey']; ?></option>
+                                    <option selected="<?= $data['jenis_survey']; ?>"> <?= $data['jenis_survey']; ?></option>
+
                                     <?php foreach ($jenis as $a) : ?>
 
                                         <option value="<?= $a['jenis_survey']; ?>"> <?= $a['jenis_survey']; ?> </option>
@@ -21,7 +22,7 @@
                             <div class="col-md-2">
                                 <label>Waktu Survey</label>
                                 <select class="form-control" id="waktu_s" name="waktu_s" placeholder="Waktu Survey">
-                                    <option disabled selected="<?= $data['waktu_survey']; ?>"><?= $data['waktu_survey']; ?></option>
+                                    <option selected="<?= $data['waktu_survey']; ?>"><?= $data['waktu_survey']; ?></option>
                                     <option value="Bulanan">Bulanan</option>
                                     <option value="Triwulan">Triwulan</option>
                                     <option value="Tahunan">Tahunan</option>
@@ -30,7 +31,7 @@
                             <div class="col-md-2">
                                 <label>Pelaksanaan</label>
                                 <select class="form-control" id="pelaksanaan" name="pelaksanaan" placeholder="Waktu Pelaksanaan">
-                                    <option disabled selected="<?= $data['waktu_pelaksanaan']; ?>"><?= $data['waktu_pelaksanaan']; ?></option>
+                                    <option selected="<?= $data['waktu_pelaksanaan']; ?>"><?= $data['waktu_pelaksanaan']; ?></option>
                                     <option value=" JANUARI">JANUARI</option>
                                     <option value="FEBRUARI">FEBRUARI</option>
                                     <option value="MARET">MARET</option>
@@ -47,12 +48,12 @@
                             </div>
                             <div class="col-md-2">
                                 <label>Petugas</label>
-                                <input type="text" name="nama_petugas" class="form-control" placeholder=" <?= $data['nama_petugas']; ?>">
+                                <input type="text" name="nama_petugas" value="<?= $data['nama_petugas']; ?>" class="form-control" placeholder=" <?= $data['nama_petugas']; ?>">
                             </div>
 
                             <div class="col-md-2">
                                 <label>Responden</label>
-                                <input type="text" name="responden" class="form-control" placeholder="  <?= $data['responden']; ?>">
+                                <input type="text" value=" <?= $data['responden']; ?>" name="responden" class="form-control" placeholder="  <?= $data['responden']; ?>">
                             </div>
                             <div class="buttonsubmit">
                                 <button type="submit" name="submit" class="btn btn-primary btn-block" onchange="this.form.submit()"> submit</button>

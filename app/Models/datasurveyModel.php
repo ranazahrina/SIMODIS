@@ -9,6 +9,6 @@ class datasurveyModel extends Model
     protected $table = 'data';
     protected $allowedFields = [
         'jenis_survey', 'responden', 'waktu_pelaksanaan', 'waktu_survey',
-        'nama_petugas'
+        'nama_petugas', 'target', 'realisasi', 'dokumen_masuk'
     ];
 }

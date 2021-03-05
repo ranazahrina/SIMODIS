@@ -3,12 +3,12 @@
         <div class="col">
             <h1 class="mt-2">Per Petugas</h1>
             <div class="pencarian">
-                <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                <form action="/home/search" method="post" class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                     <div class="input-group">
-                        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                        <input name="keyword" type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
                         <div class="input-group-append">
-                            <button class="btn btn-primary" type="button">
-                                <i class="fas fa-search fa-sm"></i>
+                            <button class="btn btn-primary" type="button" name="submit" onchange="this.form.submit()">
+                                <i class="fas fa-search fa-sm">cari</i>
                             </button>
                         </div>
                     </div>
@@ -33,12 +33,14 @@
                             </thead>
                             <tbody>
                                 <?php $i = 1; ?>
-                                <?php foreach ($isidata as $k) : ?>
+                                <?php foreach ($isi as $k) : ?>
                                     <tr>
                                         <th scope="row"><?= $i++; ?></th>
                                         <td><?= $k['nama_petugas']; ?></td>
                                         <td><?= $k['jenis_survey']; ?></td>
-                                        <td><?= $k['dokumen_masuk']; ?></td>
+                                        <td><?= $k['waktu_pelaksanaan']; ?></td>
+                                        <td><?= $k['target']; ?></td>
+                                        <td><?= $k['realisasi']; ?></td>
 
 
                                     </tr>
