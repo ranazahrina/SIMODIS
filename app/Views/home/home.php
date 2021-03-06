@@ -1,8 +1,32 @@
-<div class="chart">
-  <canvas width="600" height="250" id="realisasi"></canvas>
-</div>
-<div class="chart1">
-  <canvas width="600" height="250" id="target"></canvas>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xl-6 col-lg-5">
+      <!-- Area Chart -->
+      <div class="card shadow mb-4">
+        <div class="card-header py-3">
+          <h6 class="m-0 font-weight-bold text-primary">Realisasi Chart</h6>
+        </div>
+        <div class="card-body">
+          <div class="chart">
+            <canvas id="realisasi"></canvas>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-xl-6 col-lg-5">
+      <div class="card shadow mb-4">
+        <div class="card-header py-3">
+          <h6 class="m-0 font-weight-bold text-primary">Target Chart</h6>
+        </div>
+        <div class="card-body">
+          <div class="chart1">
+            <canvas id="target"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <?php
