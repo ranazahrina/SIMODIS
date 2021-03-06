@@ -248,10 +248,21 @@ class Survei extends BaseController
                 if ($row->target == 0) {
                     $this->datapetugas->delete($row->id);
                 } else {
-                    $this->datapetugas->save([
-                        'id' => $row->id,
-                        'target' => $row->target - 1
-                    ]);
+                    if ($row->realisasi != 0) {
+
+                        $this->datapetugas->save([
+                            'id' => $row->id,
+                            'target' => $row->target - 1,
+                            'realisasi' => $row->realisasi - 1
+
+                        ]);
+                    } else {
+                        $this->datapetugas->save([
+                            'id' => $row->id,
+                            'target' => $row->target - 1
+
+                        ]);
+                    }
                 }
             }
         }
