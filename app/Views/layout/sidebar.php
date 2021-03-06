@@ -23,7 +23,7 @@
 
     <!-- Heading -->
     <div class="sidebar-heading">
-        Interface
+        Input Data
     </div>
 
     <!-- Nav Item - Penambahan Data -->

@@ -18,7 +18,7 @@
                         <div class="col-md-2">
                             <label>Waktu Survey : </label>
                             <select class="form-control" id="category_name" name="waktu_pelaksanaan" onchange="this.form.submit()">
-                                <option disabled selected>Bulan pelaksanaan</option>
+                                <option disabled selected>Waktu pelaksanaan</option>
                                 <option value="Bulanan">Bulanan</option>
                                 <option value="Triwulan">Triwulan</option>
                                 <option value="Tahunan">Tahunan</option>
@@ -29,10 +29,10 @@
                 <div class="pencarian">
                     <form action="/home/dokumen" method="post" class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
-                            <input type="text" name="keyword" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                            <input type="text" name="keyword" class="form-control bg-light border-0 small" placeholder="Search for Responden..." aria-label="Search" aria-describedby="basic-addon2">
                             <div class="input-group-append">
                                 <button class="btn btn-primary" type="submit" onchange="this.form.submit()">
-                                    <i class="fas fa-search fa-sm">cari</i>
+                                    <i class="fas fa-search fa-sm">Cari</i>
                                 </button>
                             </div>
                         </div>
@@ -65,7 +65,7 @@
                                         <th scope="col">Jenis Survey</th>
                                         <th scope="col">Waktu Survey</th>
                                         <th scope="col">Waktu Pelaksanaan</th>
-                                        <th scope="col">Respoden</th>
+                                        <th scope="col">Responden</th>
                                         <th scope="col">Dokumen Masuk</th>
                                         <th scope="col">Options</th>
                                     </tr>

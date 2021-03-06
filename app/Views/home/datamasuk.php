@@ -24,7 +24,7 @@
                             <div class="col-md-2">
                                 <label>Waktu Survey</label>
                                 <select class="form-control <?= ($validation->hasError('waktu_s')) ? 'is-invalid' : ''; ?>" id="waktu_s" name="waktu_s" placeholder="Waktu Survey">
-                                    <option disabled selected>Bulan pelaksanaan</option>
+                                    <option disabled selected>Waktu pelaksanaan</option>
                                     <option value="Bulanan">Bulanan</option>
                                     <option value="Triwulan">Triwulan</option>
                                     <option value="Tahunan">Tahunan</option>
@@ -36,7 +36,7 @@
                             <div class="col-md-2">
                                 <label>Pelaksanaan</label>
                                 <select class="form-control <?= ($validation->hasError('pelaksanaan')) ? 'is-invalid' : ''; ?>" id="pelaksanaan" name="pelaksanaan" placeholder="Waktu Pelaksanaan">
-                                    <option disabled selected>Waktu pelaksanaan</option>
+                                    <option disabled selected>Bulan pelaksanaan</option>
                                     <option value=" JANUARI">JANUARI</option>
                                     <option value="FEBRUARI">FEBRUARI</option>
                                     <option value="MARET">MARET</option>
@@ -61,7 +61,7 @@
                                     <?= $validation->getError('nama_petugas'); ?>
                                 </div>
                                 <!-- <div class="invalid-feedback">
-                                   
+
                                 </div> -->
                             </div>
 
@@ -73,7 +73,7 @@
                                 </div>
                             </div>
                             <div class="buttonsubmit">
-                                <button type="submit" name="submit" class="button" onchange="this.form.submit()"> submit</button>
+                                <button type="submit" name="submit" class="button" onchange="this.form.submit()">Submit</button>
                             </div>
                         </div>
                     </form>
@@ -85,7 +85,7 @@
                         <input name="keyword" type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
                         <div class="input-group-append">
                             <button class="btn btn-primary" type="submit" name="submit" onchange="this.form.submit()">
-                                <i class="fas fa-search fa-sm">cari</i>
+                                <i class="fas fa-search fa-sm">Cari</i>
                             </button>
                         </div>
                     </div>
@@ -113,7 +113,7 @@
                                 <th scope="col">Waktu Survey</th>
                                 <th scope="col">Waktu Pelaksanaan</th>
                                 <th scope="col">Petugas</th>
-                                <th scope="col">Respoden</th>
+                                <th scope="col">Responden</th>
                                 <th scope="col">Options</th>
                             </tr>
                         </thead>
