@@ -33,7 +33,8 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 $routes->get('/home/home', 'Home::home');
-
+$routes->get('/home/searchingtabpetugas/(:any)', 'home::searchingtabpetugas/$1');
+$routes->get('/home/searchingtabresponden/(:any)', 'home::searchingtabresponden/$1');
 $routes->delete('/survei/(:num)/doksuk', 'survei::deletedoksuk/$1');
 $routes->delete('/survei/(:num)', 'survei::delete/$1');
 $routes->match(['get', 'post'], 'register', 'Home::register');

@@ -256,29 +256,119 @@ class Home extends BaseController
 		return redirect()->to('/home/jenissurvey');
 	}
 
-	public function perpetugas()
-	{
-		$isidata = $this->databasepetugas->findAll();
-		$db      = \Config\Database::connect();
-		$builder = $db->table('petugas');
-		$request = service('request');
-		$keyword = $request->getVar('keyword');
-		if ($keyword != null) {
-			$isidata = $builder->like('nama_petugas', $keyword)->orLike('realisasi', $keyword)->orLike('target', $keyword)->get()->getResultArray();
-		} else {
-			$isidata;
-		}
 
+	public function searchingtabpetugas($jenissurvei)
+	{
+		$request = service('request');
+		$survey = $this->databasejenissurvey->findAll();
+		$db      = \Config\Database::connect();
+		$build = $db->table('data');
+		$keyword = $request->getVar('keyword');
+		$querypencarian = $build->join('petugas', 'petugas.nama_petugas=data.nama_petugas')->where('data.jenis_survey', $jenissurvei)->like('petugas.nama_petugas', $keyword)->get()->getResultArray();
 		$data = [
 			'tittle' => 'Per Survey | Simodis',
-			'petugas' => $isidata
+			'survey' => $survey,
+			'petugas' => $querypencarian,
+			'jenissurvei' => $jenissurvei
+
 		];
 		echo view('layout/header', $data);
 		echo view('layout/sidebar');
 		echo view('layout/topbar');
-		echo view('home/perpetugas', $data);
+		echo view('home/perpetugas_pet', $data);
 		echo view('layout/footer');
 	}
+
+	public function searchingtabresponden($jenissurvei)
+	{
+		$survey = $this->databasejenissurvey->findAll();
+		$request = service('request');
+		$db      = \Config\Database::connect();
+		$build2 = $db->table('data');
+		$keyword = $request->getVar('keyword');
+		$querypencarian = $build2->where('jenis_survey', $jenissurvei)->like('responden', $keyword)->get()->getResultArray();
+		$data = [
+			'tittle' => 'Per Survey | Simodis',
+			'survey' => $survey,
+			'petugas' => $querypencarian,
+			'jenissurvei' => $jenissurvei
+
+		];
+		echo view('layout/header', $data);
+		echo view('layout/sidebar');
+		echo view('layout/topbar');
+		echo view('home/perpetugas_re', $data);
+		echo view('layout/footer');
+	}
+
+	public function perpetugas()
+	{
+
+		$survey = $this->databasejenissurvey->findAll();
+		$db      = \Config\Database::connect();
+		$request = service('request');
+		$keyword = $request->getVar('keyword');
+		$build2 = $db->table('data');
+		$checkjenis = $request->getVar('jenis_survey');
+		$checkbyapa = $request->getVar('byapanih');
+		if ($checkbyapa != null && $checkjenis != null) {
+			if ($checkbyapa == "petugas") {
+				$querypetugas = $build2->join('petugas', 'petugas.nama_petugas=data.nama_petugas')->like('data.jenis_survey', $checkjenis)->get()->getResultArray();
+				$data = [
+					'tittle' => 'Per Survey | Simodis',
+					'survey' => $survey,
+					'petugas' => $querypetugas,
+					'jenissurvei' => $checkjenis
+
+				];
+				echo view('layout/header', $data);
+				echo view('layout/sidebar');
+				echo view('layout/topbar');
+				echo view('home/perpetugas_pet', $data);
+				echo view('layout/footer');
+			} else if ($checkbyapa == "responden") {
+
+				$queryresponden = $build2->like('jenis_survey', $checkjenis)->get()->getResultArray();
+
+				$data = [
+					'tittle' => 'Per Survey | Simodis',
+					'survey' => $survey,
+					'petugas' => $queryresponden,
+					'jenissurvei' => $checkjenis
+				];
+				echo view('layout/header', $data);
+				echo view('layout/sidebar');
+				echo view('layout/topbar');
+				echo view('home/perpetugas_re', $data);
+				echo view('layout/footer');
+			} else {
+				$data = [
+					'tittle' => 'Per Survey | Simodis',
+					'survey' => $survey,
+					'jenissurvei' => $checkjenis
+				];
+				echo view('layout/header', $data);
+				echo view('layout/sidebar');
+				echo view('layout/topbar');
+				echo view('home/perpetugas', $data);
+				echo view('layout/footer');
+			}
+		} else {
+
+			$data = [
+				'tittle' => 'Per Survey | Simodis',
+				'survey' => $survey,
+				'jenissurvei' => $checkjenis
+			];
+			echo view('layout/header', $data);
+			echo view('layout/sidebar');
+			echo view('layout/topbar');
+			echo view('home/perpetugas', $data);
+			echo view('layout/footer');
+		}
+	}
+
+
 
 	public function persurvey()
 	{
