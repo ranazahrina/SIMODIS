@@ -204,27 +204,6 @@ class Home extends BaseController
 
 		];
 
-		// helper(['form']);
-
-		// if ($this->request->getMethod() == 'post') {
-		// 	$rules = [
-		// 		'survey' => 'required'
-		// 	];
-
-		// 	if (!$this->validate($rules)) {
-		// 		$data['validation'] = $this->validator;
-		// 	} else {
-
-		// 		$newData = [
-		// 			'survey' => $this->request->getVar("jenis_survey")
-		// 		];
-
-		// 		$this->model->insert($newData);
-		// 		$session = session();
-		// 		$session->setFlashdata('success', 'Berhasil Menambah Data!');
-		// 		return redirect()->to('jenissurvey');
-		// 	}
-		// }
 		echo view('layout/header', $data);
 		echo view('layout/sidebar');
 		echo view('layout/topbar');
