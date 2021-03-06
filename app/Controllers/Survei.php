@@ -39,7 +39,42 @@ class Survei extends BaseController
 
     public function save()
     {
+        if (!$this->validate([
 
+            'jenis_survey' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kolom ini harus diisi'
+                ]
+
+            ],
+            'waktu_s' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kolom ini harus diisi'
+                ]
+            ],
+            'pelaksanaan' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kolom ini harus diisi'
+                ]
+            ], 'nama_petugas' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kolom ini harus diisi'
+                ]
+            ], 'responden' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kolom ini harus diisi'
+                ]
+            ],
+        ])) {
+            $validation = \Config\Services::validation();
+            return redirect()->to('/home/datamasuk')->withInput()->with('validation', $validation);
+            // return redirect()->to('/komik/create')->withInput();
+        }
 
 
         $request = service('request');

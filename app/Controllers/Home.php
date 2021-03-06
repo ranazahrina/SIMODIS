@@ -26,7 +26,11 @@ class Home extends BaseController
 
 	public function index()
 	{
-		$data = ['tittle' => 'Login | Simodis'];
+
+		$data = [
+			'tittle' => 'Login | Simodis'
+
+		];
 		helper(['form']);
 
 		echo view('layout/header', $data);
@@ -101,11 +105,16 @@ class Home extends BaseController
 
 	public function home()
 	{
-		$data = ['tittle' => 'Homepage | Simodis'];
+		$isi = $this->databasepetugas->findAll();
+
+		$data = [
+			'tittle' => 'Homepage | Simodis',
+			'isi' => $isi
+		];
 		echo view('layout/header', $data);
 		echo view('layout/sidebar');
 		echo view('layout/topbar');
-		echo view('home/home');
+		echo view('home/home', $data);
 		echo view('layout/footer');
 	}
 
@@ -118,83 +127,32 @@ class Home extends BaseController
 		echo view('home/test');
 		echo view('layout/footer');
 	}
-	public function search()
-	{
-		$request = service('request');
-		dd($request->getVar('keyword'));
-	}
+
 
 	public function datamasuk()
 	{
+		$db      = \Config\Database::connect();
+		$builder = $db->table('data');
+		$request = service('request');
 
-		// helper(['form']);
-		/*if ($this->request->getMethod() == 'post') {
-			$rules = [
-				'jenis_survey' => 'required',
-				'waktu_survey' => 'required',
-				'waktu_pelaksanaan' => 'required',
-				'nama_petugas' => 'required|min_length[2]|max_length[50]',
-				'responden' => 'required'
-			];
-
-			$model = new datasurveyModel();
-			$isidata = [
-				'jenis_survey' => $this->request->getVar('jenis_survey'),
-				'waktu_survey' => $this->request->getVar('waktu_survey'),
-				'waktu_pelaksanaan' => $this->request->getVar('waktu_pelaksanaan'),
-				'nama_petugas' => $this->request->getVar('nama_petugas'),
-				'responden' => $this->request->getVar('responden')
-			];
-			$model->save($isidata);
-			$isidata = $this->databasesurvey->findAll();
-			$data = [
-				'tittle' => 'Pemasukkan Data | Simodis',
-				'isidata' => $isidata
-			];
-			$session = session();
-			$session->setFlashdata('success', 'Berhasil Menambah Data!');
-			return redirect()->to('datamasuk');
-		}*/
-		$isidata = $this->databasesurvey->findAll();
+		$keyword = $request->getVar('keyword');
+		$isidata = $this->databasesurvey->paginate(6, 'data');
 
 		$survey = $this->databasejenissurvey->findAll();
+		if ($keyword != null) {
+			$isidata = $builder->like('nama_petugas', $keyword)->orLike('jenis_survey', $keyword)->orLike('responden', $keyword)->orLike('waktu_pelaksanaan', $keyword)->orLike('waktu_survey', $keyword)->get()->getResultArray();
+		} else {
+			$isidata;
+		}
+
 		$data = [
 			'tittle' => 'Penambahan Data | Simodis',
 			'isidata' => $isidata,
 			'survey' => $survey,
-			'validation' => \Config\Services::validation()
+			'validation' => \Config\Services::validation(),
+			'pager' => $this->databasesurvey->pager
 		];
-		// helper(['form']);
 
-		// if ($this->request->getMethod() == 'post') {
-		// 	$rules = [
-		// 		'survey' => 'required',
-		// 		'waktu_s' => 'required',
-		// 		'pelaksanaan' => 'required',
-		// 		'petugas' => 'required',
-		// 		'responden' => 'required'
-		// 	];
-
-		// 	if (!$this->validate($rules)) {
-		// 		$data['validation'] = $this->validator;
-		// 	} else {
-
-		// 		$newData = [
-		// 			'responden' => $this->request->getVar("responden"),
-		// 			'survey' => $this->request->getVar("jenis_survey"),
-		// 			'waktu_p' => $this->request->getVar("waktu_pelaksanaan"),
-		// 			'waktu_s' => $this->request->getVar("waktu_survey"),
-		// 			'dokumen' => $this->request->getVar("dokumen_masuk"),
-		// 			'petugas' => $this->request->getVar("nama_petugas"),
-		// 			'target' => $this->request->getVar("target"),
-		// 			'realisasi' => $this->request->getVar("realisasi")
-		// 		];
-		// 		$this->model->add_data("data", $newData);
-		// 		$session = session();
-		// 		$session->setFlashdata('success', 'Berhasil Menambah Data!');
-		// 		return redirect()->to('datamasuk');
-		// 	}
-		// }
 		echo view('layout/header', $data);
 		echo view('layout/sidebar');
 		echo view('layout/topbar');
@@ -204,16 +162,30 @@ class Home extends BaseController
 
 	public function dokumen()
 	{
-
-
+		$isidata = $this->databasesurvey->paginate(6, 'data');
+		$survey = $this->databasejenissurvey->findAll();
+		$db      = \Config\Database::connect();
+		$builder = $db->table('data');
+		$request = service('request');
+		$orderjenis = $request->getVar('jenis_survey');
+		$orderpelaksanaan = $request->getVar('waktu_pelaksanaan');
+		$keyword = $request->getVar('keyword');
+		if ($orderjenis != null) {
+			$isidata = $builder->like('jenis_survey', $orderjenis)->get()->getResultArray();
+		} else if ($orderpelaksanaan != null) {
+			$isidata = $builder->like('waktu_survey', $orderpelaksanaan)->get()->getResultArray();
+		} else if ($keyword != null) {
+			$isidata = $builder->like('dokumen_masuk', $keyword)->orLike('jenis_survey', $keyword)->orLike('responden', $keyword)->orLike('waktu_pelaksanaan', $keyword)->orLike('waktu_survey', $keyword)->get()->getResultArray();
+		} else {
+			$isidata;
+		}
 		// $test = $this->gabungdata->get_all();
 		// dd($test);
-		$isidata = $this->databasesurvey->findAll();
-		$survey = $this->databasejenissurvey->findAll();
 		$data = [
 			'tittle' => 'Dokumen Masuk | Simodis',
 			'isidata' => $isidata,
-			'jenis' => $survey
+			'jenis' => $survey,
+			'pager' => $this->databasesurvey->pager
 		];
 
 		echo view('layout/header', $data);
@@ -287,6 +259,16 @@ class Home extends BaseController
 	public function perpetugas()
 	{
 		$isidata = $this->databasepetugas->findAll();
+		$db      = \Config\Database::connect();
+		$builder = $db->table('petugas');
+		$request = service('request');
+		$keyword = $request->getVar('keyword');
+		if ($keyword != null) {
+			$isidata = $builder->like('nama_petugas', $keyword)->orLike('realisasi', $keyword)->orLike('target', $keyword)->get()->getResultArray();
+		} else {
+			$isidata;
+		}
+
 		$data = [
 			'tittle' => 'Per Survey | Simodis',
 			'petugas' => $isidata
@@ -301,10 +283,20 @@ class Home extends BaseController
 	public function persurvey()
 	{
 		$db      = \Config\Database::connect();
+		$request = service('request');
+
+
+
 		$builder = $db->table('data');
 		$query = $builder->join('petugas', 'petugas.nama_petugas=data.nama_petugas')->get()->getResultArray();
 
+		$keyword = $request->getVar('keyword');
+		if ($keyword != null) {
 
+			$query = $builder->join('petugas', 'petugas.nama_petugas=data.nama_petugas')->like('petugas.nama_petugas', $keyword)->orLike('data.jenis_survey', $keyword)->orLike('data.waktu_pelaksanaan', $keyword)->orLike('petugas.target', $keyword)->orLike('petugas.realisasi', $keyword)->get()->getResultArray();
+		} else {
+			$query;
+		}
 
 		$data = [
 			'tittle' => 'Per Survey | Simodis',
@@ -314,7 +306,7 @@ class Home extends BaseController
 		echo view('layout/header', $data);
 		echo view('layout/sidebar');
 		echo view('layout/topbar');
-		echo view('home/persurvey');
+		echo view('home/persurvey', $data);
 		echo view('layout/footer');
 	}
 

@@ -11,25 +11,31 @@
                         <div class="form-group row">
                             <div class="col-md-2">
                                 <label>Jenis Survey</label>
-                                <select class="form-control" id="jenis_survey" name="jenis_survey" placeholder="Waktu Survey">
+                                <select class="form-control <?= ($validation->hasError('jenis_survey')) ? 'is-invalid' : ''; ?>" id="jenis_survey" name="jenis_survey" placeholder="Waktu Survey">
                                     <option disabled selected>Jenis survey</option>
                                     <?php foreach ($survey as $a) : ?>
                                         <option value="<?= $a['jenis_survey']; ?>"> <?= $a['jenis_survey']; ?> </option>
                                     <?php endforeach; ?>
                                 </select>
+                                <div class="invalid-feedback">
+                                    <?= $validation->getError('jenis_survey'); ?>
+                                </div>
                             </div>
                             <div class="col-md-2">
                                 <label>Waktu Survey</label>
-                                <select class="form-control" id="waktu_s" name="waktu_s" placeholder="Waktu Survey">
+                                <select class="form-control <?= ($validation->hasError('waktu_s')) ? 'is-invalid' : ''; ?>" id="waktu_s" name="waktu_s" placeholder="Waktu Survey">
                                     <option disabled selected>Bulan pelaksanaan</option>
                                     <option value="Bulanan">Bulanan</option>
                                     <option value="Triwulan">Triwulan</option>
                                     <option value="Tahunan">Tahunan</option>
                                 </select>
+                                <div class="invalid-feedback">
+                                    <?= $validation->getError('waktu_s'); ?>
+                                </div>
                             </div>
                             <div class="col-md-2">
                                 <label>Pelaksanaan</label>
-                                <select class="form-control" id="pelaksanaan" name="pelaksanaan" placeholder="Waktu Pelaksanaan">
+                                <select class="form-control <?= ($validation->hasError('pelaksanaan')) ? 'is-invalid' : ''; ?>" id="pelaksanaan" name="pelaksanaan" placeholder="Waktu Pelaksanaan">
                                     <option disabled selected>Waktu pelaksanaan</option>
                                     <option value=" JANUARI">JANUARI</option>
                                     <option value="FEBRUARI">FEBRUARI</option>
@@ -44,10 +50,16 @@
                                     <option value="NOVEMBER">NOVEMBER</option>
                                     <option value="DESEMBER">DESEMBER</option>
                                 </select>
+                                <div class="invalid-feedback">
+                                    <?= $validation->getError('pelaksanaan'); ?>
+                                </div>
                             </div>
                             <div class="col-md-2">
                                 <label>Petugas</label>
-                                <input type="text" name="nama_petugas" class="form-control " placeholder=" Nama Petugas">
+                                <input type="text" name="nama_petugas" class="form-control  <?= ($validation->hasError('nama_petugas')) ? 'is-invalid' : ''; ?>" placeholder=" Nama Petugas">
+                                <div class="invalid-feedback">
+                                    <?= $validation->getError('nama_petugas'); ?>
+                                </div>
                                 <!-- <div class="invalid-feedback">
                                    
                                 </div> -->
@@ -55,22 +67,25 @@
 
                             <div class="col-md-2">
                                 <label>Responden</label>
-                                <input type="text" name="responden" class="form-control" placeholder=" Nama Responden">
+                                <input type="text" name="responden" class="form-control <?= ($validation->hasError('responden')) ? 'is-invalid' : ''; ?>" placeholder=" Nama Responden">
+                                <div class="invalid-feedback">
+                                    <?= $validation->getError('responden'); ?>
+                                </div>
                             </div>
                             <div class="buttonsubmit">
-                                <button type="submit" name="submit" class="btn btn-primary btn-block " onchange="this.form.submit()"> submit</button>
+                                <button type="submit" name="submit" class="btn btn-primary btn-block  " onchange="this.form.submit()"> submit</button>
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
             <div class="pencarian">
-                <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                <form action="/home/datamasuk" method="post" class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                     <div class="input-group">
-                        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                        <input name="keyword" type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
                         <div class="input-group-append">
-                            <button class="btn btn-primary" type="button">
-                                <i class="fas fa-search fa-sm"></i>
+                            <button class="btn btn-primary" type="submit" name="submit" onchange="this.form.submit()">
+                                <i class="fas fa-search fa-sm">cari</i>
                             </button>
                         </div>
                     </div>
@@ -127,6 +142,7 @@
                             </tr>
                         </tbody>
                     </table>
+                    <?= $pager->links('data', 'paginationnew'); ?>
                 </div>
             </div>
         </div>

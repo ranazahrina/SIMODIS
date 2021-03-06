@@ -3,12 +3,12 @@
         <div class="row">
             <div class="col">
                 <h1 class="mt-2">Dokumen Masuk</h1>
-                <form action="/dokumenmasuk/save" method="post">
+                <form action="/home/dokumen" method="post">
                     <?= csrf_field(); ?>
                     <div class="form-group row">
                         <div class="col-md-2">
                             <label>Jenis Survey : </label>
-                            <select class="form-control" id="jenis_survey" name="jenis_survey" placeholder="Waktu Survey">
+                            <select class="form-control" id="jenis_survey" name="jenis_survey" placeholder="Waktu Survey" onchange="this.form.submit()">
                                 <option disabled selected>Jenis survey</option>
                                 <?php foreach ($jenis as $a) : ?>
                                     <option value="<?= $a['jenis_survey']; ?>"> <?= $a['jenis_survey']; ?> </option>
@@ -17,7 +17,7 @@
                         </div>
                         <div class="col-md-2">
                             <label>Waktu Survey : </label>
-                            <select class="form-control" id="category_name" name="category_name">
+                            <select class="form-control" id="category_name" name="waktu_pelaksanaan" onchange="this.form.submit()">
                                 <option disabled selected>Bulan pelaksanaan</option>
                                 <option value="Bulanan">Bulanan</option>
                                 <option value="Triwulan">Triwulan</option>
@@ -27,12 +27,12 @@
                     </div>
                 </form>
                 <div class="pencarian">
-                    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                    <form action="/home/dokumen" method="post" class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                            <input type="text" name="keyword" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
                             <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
+                                <button class="btn btn-primary" type="submit" onchange="this.form.submit()">
+                                    <i class="fas fa-search fa-sm">cari</i>
                                 </button>
                             </div>
                         </div>
@@ -97,6 +97,7 @@
                                     <?php endforeach; ?>
                                 </tbody>
                             </table>
+                            <?= $pager->links('data', 'paginationnew'); ?>
                         </div>
                     </div>
                 </div>
