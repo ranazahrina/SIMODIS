@@ -1,59 +1,85 @@
 .container-login {
-  margin-top: 10%;
-  width: 320px;
-  padding: 30px;
-  box-shadow: 0 3px 20px rgb(185, 239, 255);
+	margin-top: 10%;
+	width: 320px;
+	padding: 30px;
+	box-shadow: 0 3px 20px rgb(185, 239, 255);
 }
 
 body {
-  background-color: rgb(185, 239, 255);
+	background-color: rgb(185, 239, 255);
 }
 
 .container-tambahdata {
-  width: full;
-  padding: 20px;
-  background-color: rgb(199, 233, 243);
-  box-shadow: 0 3px 20px rgb(198, 235, 247);
-  border-radius: 15px;
+	width: full;
+	padding: 20px;
+	background-color: rgb(199, 233, 243);
+	box-shadow: 0 3px 20px rgb(198, 235, 247);
+	border-radius: 15px;
 }
 
 .mt-2 {
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-  color: black;
-  text-align: center;
+	font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+	color: rgb(0, 0, 0);
+	text-align: center;
 }
 
 .pencarian {
-  margin-top: 2%;
-  margin-left: 50em;
-  margin-bottom: 2%;
+	margin-top: 2%;
+	margin-left: 50em;
+	margin-bottom: 2%;
 }
 
 .container-fluid {
-  height: 100%;
-  background-color: white;
+	height: 100%;
+	background-color: white;
 }
 
 .wrapper {
-  background-color: rgb(199, 233, 243);
-  box-shadow: 0 3px 20px rgb(198, 235, 247);
-  border-radius: 15px;
+	background-color: rgb(199, 233, 243);
+	box-shadow: 0 3px 20px rgb(198, 235, 247);
+	border-radius: 15px;
 }
 
 .container-jenis {
-  width: full;
-  padding: 20px;
-  background-color: rgb(199, 233, 243);
-  box-shadow: 0 3px 20px rgb(198, 235, 247);
-  border-radius: 15px;
+	width: full;
+	padding: 20px;
+	background-color: rgb(199, 233, 243);
+	box-shadow: 0 3px 20px rgb(198, 235, 247);
+	border-radius: 15px;
 }
 
 .button-dokumen {
-  margin-top: 2%;
-  margin-bottom: 2%;
+	margin-top: 2%;
+	margin-bottom: 2%;
 }
 
-.buttonsubmit {
-  margin-top: 3%;
-  margin-bottom: 2%;
+.button {
+	display: inline-block;
+	padding: 0.3em 1.2em;
+	margin: 0 0.3em 0.3em 0;
+	border-radius: 2em;
+	box-sizing: border-box;
+	text-decoration: none;
+	font-weight: 700;
+	font-size: 18px;
+	color: #2c3e50;
+	background-color: rgb(241, 190, 50);
+	text-align: center;
+	transition: all 0.2s;
+	margin-top: 25%;
+	margin-bottom: 2%;
+}
+
+.button:hover {
+	background-color: #f39c12;
+}
+
+form {
+	font-weight: bold;
+	text-align: center;
+	position: center;
+}
+
+.col-md-2 {
+	color: black;
 }

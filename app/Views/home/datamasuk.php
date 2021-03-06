@@ -73,7 +73,7 @@
                                 </div>
                             </div>
                             <div class="buttonsubmit">
-                                <button type="submit" name="submit" class="btn btn-primary btn-block  " onchange="this.form.submit()"> submit</button>
+                                <button type="submit" name="submit" class="button" onchange="this.form.submit()"> submit</button>
                             </div>
                         </div>
                     </form>
