@@ -26,6 +26,7 @@ class Validation
 		FileRules::class,
 		CreditCardRules::class,
 		userrules::class,
+		\Myth\Auth\Authentication\Passwords\ValidationRules::class
 	];
 
 	/**
@@ -37,6 +38,7 @@ class Validation
 	public $templates = [
 		'list'   => 'CodeIgniter\Validation\Views\list',
 		'single' => 'CodeIgniter\Validation\Views\single',
+
 	];
 
 	//--------------------------------------------------------------------

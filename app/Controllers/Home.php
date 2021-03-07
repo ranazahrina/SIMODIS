@@ -6,7 +6,7 @@ use App\Models\databps;
 use App\Models\datasurveyModel;
 use App\Models\dataPetugasModel;
 use App\Models\dataJenisSurveyModel;
-
+use App\Models\penggunaModel;
 
 class Home extends BaseController
 {
@@ -14,6 +14,8 @@ class Home extends BaseController
 	protected $databps;
 	protected $databasesurvey;
 	protected $databasepetugas;
+	protected $datausers;
+
 
 	public function __construct()
 	{
@@ -21,6 +23,7 @@ class Home extends BaseController
 		$this->databasesurvey = new datasurveyModel();
 		$this->databasepetugas = new dataPetugasModel();
 		$this->databasejenissurvey = new dataJenisSurveyModel();
+		$this->datausers = new penggunaModel();
 	}
 
 
@@ -146,24 +149,16 @@ class Home extends BaseController
 	{
 		$isi = $this->databasepetugas->findAll();
 
+
 		$data = [
 			'tittle' => 'Homepage | Simodis',
-			'isi' => $isi
+			'isi' => $isi,
+
 		];
 		echo view('layout/header', $data);
 		echo view('layout/sidebar');
-		echo view('layout/topbar');
+		echo view('layout/topbar', $data);
 		echo view('home/home', $data);
-		echo view('layout/footer');
-	}
-
-	public function test()
-	{
-		$data = ['tittle' => 'Homepage | testing'];
-		echo view('layout/header', $data);
-		echo view('layout/sidebar');
-		echo view('layout/topbar');
-		echo view('home/test');
 		echo view('layout/footer');
 	}
 
@@ -230,7 +225,7 @@ class Home extends BaseController
 		echo view('layout/header', $data);
 		echo view('layout/sidebar');
 		echo view('layout/topbar');
-		echo view('home/dokumen');
+		echo view('home/dokumen', $data);
 		echo view('layout/footer');
 	}
 
