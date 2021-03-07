@@ -35,9 +35,9 @@
                     </div>
                 </li>
                 <?php if (logged_in()) : ?>
-                    <a href="/logout">Login</a>
-                <?php else : ?>
                     <a href="/logout">Logout</a>
+                <?php else : ?>
+                    <a href="/login">Login</a>
                 <?php endif; ?>
             </ul>
 

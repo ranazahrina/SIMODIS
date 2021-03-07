@@ -52,9 +52,8 @@
                 <a class="collapse-item" href="<?php echo base_url('/home/persurvey') ?>">Per Petugas</a>
                 <a class="collapse-item" href="<?php echo base_url('/home/perpetugas') ?>">Per Survey</a>
                 <div class="collapse-divider"></div>
-                <h6 class="collapse-header">Other Pages:</h6>
-                <a class="collapse-item" href="<?php echo base_url('/home/register') ?>">Tambah Pengguna</a>
-                <a class="collapse-item active" href="blank.html">Blank Page</a>
+
+
             </div>
         </div>
     </li>
