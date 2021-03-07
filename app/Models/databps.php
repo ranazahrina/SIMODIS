@@ -33,32 +33,4 @@ class databps extends Model
     return $data;
   }
 
-  /* function add_data($table, $data)
-    {
-      $query = $this->db->insert($table, $data);
-
-      if($query){
-        return true;
-      } else {
-        return false;
-      }
-    }
-
-    public function get_all($tabel)
-    	{
-    		$query = $this->db->select('*')
-    			->from($tabel)
-    			->get();
-    		return $query->result_array();
-    	}
-
-/*    function update_data(){
-      $resp=$this->input->post('responden');
-      $survey=$this->input->post('survey');
-      $waktu_s=$this->input->post('waktu_s');
-      $waktu_p=$this->input->post('waktu_p');
-      $petugas=$this->input->post('petugas');
-
-
-    }*/
 }
