@@ -15,6 +15,7 @@ class Home extends BaseController
 	protected $databasesurvey;
 	protected $databasepetugas;
 	protected $datausers;
+	protected $auth;
 
 
 	public function __construct()
@@ -23,7 +24,6 @@ class Home extends BaseController
 		$this->databasesurvey = new datasurveyModel();
 		$this->databasepetugas = new dataPetugasModel();
 		$this->databasejenissurvey = new dataJenisSurveyModel();
-		$this->datausers = new penggunaModel();
 	}
 
 
@@ -148,6 +148,7 @@ class Home extends BaseController
 	public function home()
 	{
 		$isi = $this->databasepetugas->findAll();
+
 
 
 		$data = [
