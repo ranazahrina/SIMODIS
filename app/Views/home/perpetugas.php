@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col">
                 <h1 class="mt-2">Per Survey</h1>
-                <div class="container-tambahdata">
+                <div class="container">
                     <form action="/home/perpetugas" method="post">
                         <div class="form-group row">
                             <div class="col-md-2">

@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-xl-6 col-lg-5">
-      <!-- Area Chart -->
+      <h1 class="mt-2"></h1>
       <div class="card shadow mb-4">
         <div class="card-header py-3">
           <h6 class="m-0 font-weight-bold text-primary">Realisasi Chart</h6>
@@ -15,6 +15,7 @@
 
     </div>
     <div class="col-xl-6 col-lg-5">
+      <h1 class="mt-2"></h1>
       <div class="card shadow mb-4">
         <div class="card-header py-3">
           <h6 class="m-0 font-weight-bold text-primary">Target Chart</h6>

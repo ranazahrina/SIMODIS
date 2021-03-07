@@ -3,7 +3,6 @@
 namespace Config;
 
 use CodeIgniter\Config\BaseConfig;
-use Myth\Auth\Authentication\AuthenticateInterface;
 
 class App extends BaseConfig
 {
@@ -304,7 +303,7 @@ class App extends BaseConfig
 	 * (empty string) means no SameSite attribute will be set on cookies. If
 	 * set to `None`, `$cookieSecure` must also be set.
 	 *
-	 * @var string 'Lax'|'None'|'Strict'
+       * @var string 'Lax'|'None'|'Strict'
 	 */
 	public $cookieSameSite = 'Lax';
 

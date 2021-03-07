@@ -26,17 +26,19 @@
                         </div>
                     </div>
                 </form>
-                <div class="pencarian">
-                    <form action="/home/dokumen" method="post" class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                        <div class="input-group">
-                            <input type="text" name="keyword" class="form-control bg-light border-0 small" placeholder="Search for Responden..." aria-label="Search" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="submit" onchange="this.form.submit()">
-                                    <i class="fas fa-search fa-sm">Cari</i>
-                                </button>
+                <div class="container">
+                    <div class="pencarian">
+                        <form action="/home/dokumen" method="post" class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                            <div class="input-group">
+                                <input type="text" name="keyword" class="form-control bg-light border-0 small" placeholder="Search for Responden..." aria-label="Search" aria-describedby="basic-addon2">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="submit" onchange="this.form.submit()">
+                                        <i class="fas fa-search fa-sm">Cari</i>
+                                    </button>
+                                </div>
                             </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
                 <div class="col-md-4">
                     <?php if (session()->getFlashdata('berhasil')) : ?>
