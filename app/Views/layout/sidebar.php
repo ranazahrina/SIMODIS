@@ -52,8 +52,6 @@
                 <a class="collapse-item" href="<?php echo base_url('/home/persurvey') ?>">Per Petugas</a>
                 <a class="collapse-item" href="<?php echo base_url('/home/perpetugas') ?>">Per Survey</a>
                 <div class="collapse-divider"></div>
-
-
             </div>
         </div>
     </li>

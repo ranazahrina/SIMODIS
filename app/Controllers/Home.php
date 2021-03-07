@@ -41,11 +41,50 @@ class Home extends BaseController
 		echo view('layout/footer');
 	}
 
-	/*	private function login()
+/*		public function login()
 	{
-		$name = $this->input->post('uname');
-		$pass = $this->input->post('password');
-		$var = $this->db->get_where('admin', ['name' => $name])->row();
+		//validation
+		$validation = $this->validate([
+			'email' => [
+				'rules' => 'required|valid_email|is_not_unique[admin.email]',
+				'errors' => [
+					'required' => 'Email is required',
+					'valid_email' => 'Enter a valid email address',
+					'is_not_unique' => 'This email is not registered on our service'
+				]
+				],
+			'password' => [
+				'rules' => 'required',
+				'errors' => [
+					'required' => 'Password is required'
+				]
+			]
+		]);
+
+		if (!$validation) {
+			return view('login/login',  ['validation'=>$this->validator]);
+		} else {
+			//validate user
+			$email = $this->request->getPost('email');
+			$password = $this->request->getPost('password');
+			$userInfo = $this->model->where('email', $email)->first();
+			$checkPassword = Hash::check($password, $userInfo['password']);
+
+			if (!$checkPassword) {
+				session()->setFlashdata('fail', 'Incorrect password');
+				return redirect()->to('/login')->withInput();
+			} else {
+				$userId = $userInfo['id'];
+				session()->set('loggedUser', $userId);
+				return redirect()->to('/home');
+			}
+		}
+		/* $db      = \Config\Database::connect();
+		$builder = $db->table('data');
+		$request = service('request');
+		$name = $request->getVar('uname');
+		$pass = $request->getVar('password');
+		$var = $builder->where('name', $name)->where('password', $pass); //('admin', ['name' => $name])->row();
 		if ($var) {
 			if ($var->password == $pass){
 					$_SESSION['name'] ="$name";
@@ -68,8 +107,8 @@ class Home extends BaseController
 			echo view('login/login');
 			echo view('layout/footer');
 		}
-	}
-*/
+	}*/
+
 	public function register()
 	{
 
