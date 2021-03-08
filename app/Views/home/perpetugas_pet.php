@@ -45,13 +45,50 @@
                         <h6 class="m-0 font-weight-bold text-primary">By Petugas</h6>
                     </div>
                     <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <div class="table">
+                            <table class="table table-bordered table-striped table-hover" id="dataTable" width="400%" cellspacing="0">
                                 <thead>
                                     <tr>
-                                        <th scope="col">No</th>
-                                        <th scope="col">Jenis survey</th>
-                                        <th scope="col">Petugas</th>
+                                        <th rowspan="2">No</th>
+                                        <th rowspan="2">Jenis survey</th>
+                                        <th rowspan="2">Petugas</th>
+                                        <th colspan="2">JANUARI</th>
+                                        <th colspan="2">FEBRUARI</th>
+                                        <th colspan="2">MARET</th>
+                                        <th colspan="2">APRIL</th>
+                                        <th colspan="2">MEI</th>
+                                        <th colspan="2">JUNI</th>
+                                        <th colspan="2">JULI</th>
+                                        <th colspan="2">AGUSTUS</th>
+                                        <th colspan="2">SEPTEMBER</th>
+                                        <th colspan="2">OKTOBER</th>
+                                        <th colspan="2">NOVEMBER</th>
+                                        <th colspan="2">DESEMBER</th>
+                                    </tr>
+
+                                    <tr>
+                                        <th scope="col">Target</th>
+                                        <th scope="col">Realisasi</th>
+                                        <th scope="col">Target</th>
+                                        <th scope="col">Realisasi</th>
+                                        <th scope="col">Target</th>
+                                        <th scope="col">Realisasi</th>
+                                        <th scope="col">Target</th>
+                                        <th scope="col">Realisasi</th>
+                                        <th scope="col">Target</th>
+                                        <th scope="col">Realisasi</th>
+                                        <th scope="col">Target</th>
+                                        <th scope="col">Realisasi</th>
+                                        <th scope="col">Target</th>
+                                        <th scope="col">Realisasi</th>
+                                        <th scope="col">Target</th>
+                                        <th scope="col">Realisasi</th>
+                                        <th scope="col">Target</th>
+                                        <th scope="col">Realisasi</th>
+                                        <th scope="col">Target</th>
+                                        <th scope="col">Realisasi</th>
+                                        <th scope="col">Target</th>
+                                        <th scope="col">Realisasi</th>
                                         <th scope="col">Target</th>
                                         <th scope="col">Realisasi</th>
                                     </tr>
@@ -74,3 +111,4 @@
             </div>
         </div>
     </div>
+</div>

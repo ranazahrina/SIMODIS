@@ -184,20 +184,6 @@ class Survei extends BaseController
             $this->datapetugas->delete($pk);
         }
         $this->data->delete($id);
-        // if($ptgsaja['target']==0){
-        //     $this->datapetugas->delete
-        // }
-
-
-        // $builder2 =$db->table('data');
-
-        //  $ptgs= $builder->get()->getResult();
-        //  $surv= $builder2->get()->getResult();
-
-        //  foreach($surv as $row1){
-
-        //  }
-
 
 
         session()->setFlashdata('berhasil', 'Data berhasil dihapus');
@@ -274,27 +260,6 @@ class Survei extends BaseController
             $this->datapetugas->delete($pk);
             $this->data->delete($id);
         }
-        // dd($cekdata);
-
-        // if ($cekdata['target'] == 0) {
-        //     $this->datapetugas->delete($pk);
-        // } else if ($cekdata == null) {
-        //     $thid->data->delete($id);
-        // }
-
-        // if($ptgsaja['target']==0){
-        //     $this->datapetugas->delete
-        // }
-
-
-        // $builder2 =$db->table('data');
-
-        //  $ptgs= $builder->get()->getResult();
-        //  $surv= $builder2->get()->getResult();
-
-        //  foreach($surv as $row1){
-
-        //  }
 
         $this->data->delete($id);
 

@@ -41,104 +41,11 @@ class Home extends BaseController
 		echo view('layout/footer');
 	}
 
-/*		public function login()
-	{
-		//validation
-		$validation = $this->validate([
-			'email' => [
-				'rules' => 'required|valid_email|is_not_unique[admin.email]',
-				'errors' => [
-					'required' => 'Email is required',
-					'valid_email' => 'Enter a valid email address',
-					'is_not_unique' => 'This email is not registered on our service'
-				]
-				],
-			'password' => [
-				'rules' => 'required',
-				'errors' => [
-					'required' => 'Password is required'
-				]
-			]
-		]);
-
-		if (!$validation) {
-			return view('login/login',  ['validation'=>$this->validator]);
-		} else {
-			//validate user
-			$email = $this->request->getPost('email');
-			$password = $this->request->getPost('password');
-			$userInfo = $this->model->where('email', $email)->first();
-			$checkPassword = Hash::check($password, $userInfo['password']);
-
-			if (!$checkPassword) {
-				session()->setFlashdata('fail', 'Incorrect password');
-				return redirect()->to('/login')->withInput();
-			} else {
-				$userId = $userInfo['id'];
-				session()->set('loggedUser', $userId);
-				return redirect()->to('/home');
-			}
-		}
-		/* $db      = \Config\Database::connect();
-		$builder = $db->table('data');
-		$request = service('request');
-		$name = $request->getVar('uname');
-		$pass = $request->getVar('password');
-		$var = $builder->where('name', $name)->where('password', $pass); //('admin', ['name' => $name])->row();
-		if ($var) {
-			if ($var->password == $pass){
-					$_SESSION['name'] ="$name";
-					$this->home();
-			} else {
-				$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-                                invalid password!
-                                </div>');
-				$data = ['tittle' => 'Login | Simodis'];
-				echo view('layout/header', $data);
-				echo view('login/login');
-				echo view('layout/footer');
-			}
-		} else {
-			$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-															invalid username!
-															</div>');
-			$data = ['tittle' => 'Login | Simodis'];
-			echo view('layout/header', $data);
-			echo view('login/login');
-			echo view('layout/footer');
-		}
-	}*/
-
 	public function register()
 	{
 
 		$data = ['tittle' => 'Register | Simodis'];
 		helper(['form']);
-
-		/*if ($this->request->getMethod() == 'post') {
-			$rules = [
-				'name' => 'required|min_length[3]|max_length[50]',
-				'email' => 'required|min_length[6]|max_length[50]|valid_email|is_unique[admin.email]',
-				'password' => 'required|min_length[8]|max_length[255]',
-				'password2' => 'matches[password]',
-			];
-
-			if (!$this->validate($rules)) {
-				$data['validation'] = $this->validator;
-			} else {
-
-				$model = new databps();
-				$newData = [
-					'name' => $this->request->getVar('name'),
-					'email' => $this->request->getVar('email'),
-					'password' => $this->request->getVar('password')
-				];
-				$model->save($newData);
-				$session = session();
-				$session->setFlashdata('success', 'Berhasil Menambah Pengguna!');
-				return redirect()->to('register');
-			}
-		}*/
 
 		echo view('layout/header', $data);
 		echo view('login/register');
