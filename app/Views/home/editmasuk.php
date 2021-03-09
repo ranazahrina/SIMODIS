@@ -61,11 +61,7 @@
                         </div>
                     </form>
                 </div>
-                <?php if (session()->getFlashdata('berhasil')) : ?>
-                    <div class="alert alert-danger" role="alert">
-                        <?= session()->getFlashdata('berhasil'); ?>
-                    </div>
-                <?php endif; ?>
+
             </div>
         </div>
     </div>

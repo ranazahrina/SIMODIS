@@ -144,10 +144,7 @@ class Survei extends BaseController
             }
         }
 
-
-
-
-
+        session()->setFlashdata('nambah', 'Data berhasil ditambahkan');
 
         return redirect()->to('/home/datamasuk');
     }
@@ -354,6 +351,7 @@ class Survei extends BaseController
                 ]);
             }
         }
+        session()->setFlashdata('editdata', 'Data berhasil diubah');
         return redirect()->to('/home/datamasuk');
     }
 }

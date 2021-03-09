@@ -94,14 +94,41 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php $i = 1 ?>
+                                    <?php $i = 1;
+                                    $varpetugas = null; ?>
                                     <?php foreach ($petugas as $k) : ?>
                                         <tr>
-                                            <th scope="row"><?= $i++; ?></th>
-                                            <td><?= $k['jenis_survey']; ?></td>
-                                            <td><?= $k['nama_petugas']; ?></td>
-                                            <td><?= $k['target']; ?></td>
-                                            <td><?= $k['realisasi']; ?></td>
+                                            <?php if ($k['nama_petugas'] != $varpetugas) : ?>
+                                                <th scope="row"><?= $i++; ?></th>
+                                                <td><?= $k['jenis_survey']; ?></td>
+                                                <td><?= $k['nama_petugas']; ?></td>
+                                                <?php $varpetugas = $k['nama_petugas']; ?>
+                                                <td><?= $k['target']; ?></td>
+                                                <td><?= $k['realisasi']; ?></td>
+                                                <td><?= $k['target']; ?></td>
+                                                <td><?= $k['realisasi']; ?></td>
+                                                <td><?= $k['target']; ?></td>
+                                                <td><?= $k['realisasi']; ?></td>
+                                                <td><?= $k['target']; ?></td>
+                                                <td><?= $k['realisasi']; ?></td>
+                                                <td><?= $k['target']; ?></td>
+                                                <td><?= $k['realisasi']; ?></td>
+                                                <td><?= $k['target']; ?></td>
+                                                <td><?= $k['realisasi']; ?></td>
+                                                <td><?= $k['target']; ?></td>
+                                                <td><?= $k['realisasi']; ?></td>
+                                                <td><?= $k['target']; ?></td>
+                                                <td><?= $k['realisasi']; ?></td>
+                                                <td><?= $k['target']; ?></td>
+                                                <td><?= $k['realisasi']; ?></td>
+                                                <td><?= $k['target']; ?></td>
+                                                <td><?= $k['realisasi']; ?></td>
+                                                <td><?= $k['target']; ?></td>
+                                                <td><?= $k['realisasi']; ?></td>
+                                                <td><?= $k['target']; ?></td>
+                                                <td><?= $k['realisasi']; ?></td>
+                                            <?php endif; ?>
+
                                         </tr>
                                     <?php endforeach; ?>
                             </table>

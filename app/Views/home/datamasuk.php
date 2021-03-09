@@ -94,6 +94,20 @@
                 </div>
             </div>
             <div class="col-md-4">
+                <?php if (session()->getFlashdata('editdata')) : ?>
+                    <div class="alert alert-success" role="alert">
+                        <?= session()->getFlashdata('editdata'); ?>
+                    </div>
+                <?php endif; ?>
+            </div>
+            <div class="col-md-4">
+                <?php if (session()->getFlashdata('nambah')) : ?>
+                    <div class="alert alert-success" role="alert">
+                        <?= session()->getFlashdata('nambah'); ?>
+                    </div>
+                <?php endif; ?>
+            </div>
+            <div class="col-md-4">
                 <?php if (session()->getFlashdata('berhasil')) : ?>
                     <div class="alert alert-danger" role="alert">
                         <?= session()->getFlashdata('berhasil'); ?>
