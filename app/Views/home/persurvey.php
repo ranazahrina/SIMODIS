@@ -34,16 +34,30 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php $i = 1; ?>
+                                <?php $i = 1;
+                                $varpetugas = null;
+                                $varjenis = null; ?>
                                 <?php foreach ($isi as $k) : ?>
                                     <tr>
-                                        <th scope="row"><?= $i++; ?></th>
-                                        <td><?= $k['nama_petugas']; ?></td>
-                                        <td><?= $k['jenis_survey']; ?></td>
-                                        <td><?= $k['waktu_pelaksanaan']; ?></td>
-                                        <td><?= $k['target']; ?></td>
-                                        <td><?= $k['realisasi']; ?></td>
-
+                                        <?php if ($k['nama_petugas'] != $varpetugas) : ?>
+                                            <th scope="row"><?= $i++; ?></th>
+                                            <td><?= $k['nama_petugas']; ?></td>
+                                            <?php $varpetugas = $k['nama_petugas']; ?>
+                                            <td><?= $k['jenis_survey']; ?></td>
+                                            <td><?= $k['waktu_pelaksanaan']; ?></td>
+                                            <?php $varjenis = $k['jenis_survey']; ?>
+                                            <td><?= $k['target']; ?></td>
+                                            <td><?= $k['realisasi']; ?></td>
+                                        <?php elseif ($k['nama_petugas'] == $varpetugas && $k['jenis_survey'] != $varjenis) : ?>
+                                            <th scope="row"><?= $i++; ?></th>
+                                            <td><?= $k['nama_petugas']; ?></td>
+                                            <?php $varpetugas = $k['nama_petugas']; ?>
+                                            <td><?= $k['jenis_survey']; ?></td>
+                                            <td><?= $k['waktu_pelaksanaan']; ?></td>
+                                            <?php $varjenis = $k['jenis_survey']; ?>
+                                            <td><?= $k['target']; ?></td>
+                                            <td><?= $k['realisasi']; ?></td>
+                                        <?php endif; ?>
 
                                     </tr>
                                 <?php endforeach; ?>
