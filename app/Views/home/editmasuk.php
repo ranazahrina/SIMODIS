@@ -56,7 +56,7 @@
                                 <input type="text" value=" <?= $data['responden']; ?>" name="responden" class="form-control" placeholder="  <?= $data['responden']; ?>">
                             </div>
                             <div class="buttonsubmit">
-                                <button type="submit" name="submit" class="btn btn-primary btn-block" onchange="this.form.submit()"> submit</button>
+                                <button type="submit" name="submit" class="button" onchange="this.form.submit()"> submit</button>
                             </div>
                         </div>
                     </form>
