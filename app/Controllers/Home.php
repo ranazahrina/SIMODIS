@@ -30,6 +30,7 @@ class Home extends BaseController
 	public function index()
 	{
 
+
 		$data = [
 			'tittle' => 'Login | Simodis'
 
@@ -56,10 +57,18 @@ class Home extends BaseController
 	{
 		$isi = $this->databasepetugas->findAll();
 
+		// $query=$this->databasesurvey->findAll();
+		// $gabung=$query->join
+		$db      = \Config\Database::connect();
+		$builder = $db->table('data');
+		$gabung = $builder->join('petugas', 'petugas.nama_petugas=data.nama_petugas')->get()->getResultArray();
+
+
 
 		$data = [
 			'tittle' => 'Homepage | Simodis',
 			'isi' => $isi,
+
 
 		];
 		echo view('layout/header', $data);
@@ -234,11 +243,17 @@ class Home extends BaseController
 		if ($checkbyapa != null && $checkjenis != null) {
 			if ($checkbyapa == "petugas") {
 				$querypetugas = $build2->join('petugas', 'petugas.nama_petugas=data.nama_petugas')->like('data.jenis_survey', $checkjenis)->get()->getResultArray();
+				dd($querypetugas);
+				$barispertama = $querypetugas[0];
+
+
+
 				$data = [
 					'tittle' => 'Per Survey | Simodis',
 					'survey' => $survey,
 					'petugas' => $querypetugas,
-					'jenissurvei' => $checkjenis
+					'jenissurvei' => $checkjenis,
+					'barispertama' => $barispertama
 
 				];
 				echo view('layout/header', $data);

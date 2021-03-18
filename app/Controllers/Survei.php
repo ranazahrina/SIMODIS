@@ -72,6 +72,7 @@ class Survei extends BaseController
             ],
         ])) {
             $validation = \Config\Services::validation();
+
             return redirect()->to('/home/datamasuk')->withInput()->with('validation', $validation);
             // return redirect()->to('/komik/create')->withInput();
         }
@@ -194,18 +195,58 @@ class Survei extends BaseController
             'id' => $id,
             'dokumen_masuk' => $request->getVar('tanggal_masuk')
         ]);
+        $masuk = $request->getVar('tanggal_masuk');
+        $bulan = date("m", strtotime($masuk));
+
+        if ($bulan == "01") {
+            $bulanasli = "JANUARI";
+        } else if ($bulan == "02") {
+            $bulanasli = "FEBRUARI";
+        } else if ($bulan == "03") {
+            $bulanasli = "MARET";
+        } else if ($bulan == "04") {
+            $bulanasli = "APRIL";
+        } else if ($bulan == "05") {
+            $bulanasli = "MEI";
+        } else if ($bulan == "06") {
+            $bulanasli = "JUNI";
+        } else if ($bulan == "07") {
+            $bulanasli = "JULI";
+        } else if ($bulan == "08") {
+            $bulanasli = "AGUSTUS";
+        } else if ($bulan == "09") {
+            $bulanasli = "SEPTEMBER";
+        } else if ($bulan == "10") {
+            $bulanasli = "OKTOBER";
+        } else if ($bulan == "11") {
+            $bulanasli = "NOVEMBER";
+        } else if ($bulan == "12") {
+            $bulanasli = "DESEMBER";
+        }
+
+
         $test = $this->data->find($id);
         $test1 = $this->datapetugas->findAll();
 
         $isi = $test['nama_petugas'];
+        $temptarget = null;
         foreach ($test1 as $k) {
             if ($k['nama_petugas'] == $isi) {
                 $tempid = $k['id'];
                 $tempreal = $k['realisasi'];
-                if ($k['realisasi'] < $k['target']) {
+                $temptarget = $k['target'];
+                if ($k['realisasi'] < $k['target'] && $k['bulan_masuk'] == null) {
                     $this->datapetugas->save([
                         'id' => $tempid,
-                        'realisasi' => $tempreal + 1
+                        'realisasi' => $tempreal + 1,
+                        'bulan_masuk' => $bulanasli
+                    ]);
+                } else if ($k['realisasi'] < $k['target'] && $k['bulan_masuk'] != null) {
+                    $this->datapetugas->save([
+                        'nama_petugas' => $isi,
+                        'realisasi' => $tempreal + 1,
+                        'target' => $temptarget,
+                        'bulan_masuk' => $bulanasli
                     ]);
                 }
             }

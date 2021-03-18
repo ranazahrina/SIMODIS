@@ -36,6 +36,7 @@ foreach ($isi as $i) {
   $target[] = $i['target'];
 }
 
+
 ?>
 
 <script>
@@ -91,8 +92,10 @@ foreach ($isi as $i) {
             'rgba(234, 255, 208, 1)',
             'rgba(149, 225, 211, 1)',
             'rgba(252, 227, 138, 1)',
-            'rgba(149, 225, 211, 1)'
+            'rgba(149, 225, 211, 1)',
           ]
+
+
         }]
       },
       options: {}
@@ -157,6 +160,7 @@ foreach ($isi as $i) {
 
       }
     });
+
 
   }
 </script>

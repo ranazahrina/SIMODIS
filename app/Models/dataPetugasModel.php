@@ -7,5 +7,5 @@ use CodeIgniter\Model;
 class dataPetugasModel extends Model
 {
     protected $table = 'petugas';
-    protected $allowedFields = ['nama_petugas', 'target', 'realisasi'];
+    protected $allowedFields = ['nama_petugas', 'target', 'realisasi', 'bulan_masuk'];
 }
