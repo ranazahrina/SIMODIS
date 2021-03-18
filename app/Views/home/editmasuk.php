@@ -32,7 +32,7 @@
                                 <label>Pelaksanaan</label>
                                 <select class="form-control" id="pelaksanaan" name="pelaksanaan" placeholder="Waktu Pelaksanaan">
                                     <option selected="<?= $data['waktu_pelaksanaan']; ?>"><?= $data['waktu_pelaksanaan']; ?></option>
-                                    <option value=" JANUARI">JANUARI</option>
+                                    <option value="JANUARI">JANUARI</option>
                                     <option value="FEBRUARI">FEBRUARI</option>
                                     <option value="MARET">MARET</option>
                                     <option value="APRIL">APRIL</option>

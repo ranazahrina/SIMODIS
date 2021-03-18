@@ -55,7 +55,55 @@ class Home extends BaseController
 
 	public function home()
 	{
-		$isi = $this->databasepetugas->findAll();
+		$db      = \Config\Database::connect();
+		$request = service('request');
+		$build = $db->table('data');
+		$tabeldata = $build->join('petugas', 'petugas.nama_petugas=data.nama_petugas')->get()->getResultArray();
+
+		$jan = 0;
+		$feb = 0;
+		$mar = 0;
+		$apr = 0;
+		$mei = 0;
+		$jun = 0;
+		$jul = 0;
+		$ags = 0;
+		$sep = 0;
+		$okt = 0;
+		$nov = 0;
+		$des = 0;
+		foreach ($tabeldata as $k) {
+			if ($k['waktu_pelaksanaan'] == 'JANUARI') {
+				$jan++;
+			} elseif ($k['waktu_pelaksanaan'] == 'FEBRUARI') {
+				$feb++;
+			} elseif ($k['waktu_pelaksanaan'] == 'MARET') {
+				$mar++;
+			} elseif ($k['waktu_pelaksanaan'] == 'APRIL') {
+				$apr++;
+			} elseif ($k['waktu_pelaksanaan'] == 'MEI') {
+				$mei++;
+			} elseif ($k['waktu_pelaksanaan'] == 'JUNI') {
+				$jun++;
+			} elseif ($k['waktu_pelaksanaan'] == 'JULI') {
+				$jul++;
+			} elseif ($k['waktu_pelaksanaan'] == 'AGUSTUS') {
+				$ags++;
+			} elseif ($k['waktu_pelaksanaan'] == 'SEPTEMBER') {
+				$sep++;
+			} elseif ($k['waktu_pelaksanaan'] == 'OKTOBER') {
+				$okt++;
+			} elseif ($k['waktu_pelaksanaan'] == 'NOVEMBER') {
+				$nov++;
+			} elseif ($k['waktu_pelaksanaan'] == 'DESEMBER') {
+				$des++;
+			}
+		}
+		$namabulan = array('JANUARI', 'FEBRUARI', 'MARET', 'APRIL', 'MEI', 'JUNI', 'JULI', 'AGUSTUS', 'SEPTEMBER', 'OKTOBER', 'NOVEMBER', 'DESEMBER');
+		$databulan = array(
+			'JAN' => $jan, 'FEB' => $feb, 'MAR' => $mar, 'APR' => $apr, 'MEI' => $mei, 'JUN' => $jun, 'JUL' => $jul, 'AGS' => $ags, 'SEP' => $sep, 'OKT' => $okt,
+			'NOV' => $nov, 'DES' => $des
+		);
 
 		// $query=$this->databasesurvey->findAll();
 		// $gabung=$query->join
@@ -64,18 +112,39 @@ class Home extends BaseController
 		$gabung = $builder->join('petugas', 'petugas.nama_petugas=data.nama_petugas')->get()->getResultArray();
 
 
+		$pelaksanaan = $request->getVar('pelaksanaan');
 
-		$data = [
-			'tittle' => 'Homepage | Simodis',
-			'isi' => $isi,
-
-
-		];
-		echo view('layout/header', $data);
-		echo view('layout/sidebar');
-		echo view('layout/topbar', $data);
-		echo view('home/home', $data);
-		echo view('layout/footer');
+		if ($pelaksanaan != null) {
+			$querybulan = $build->join('petugas', 'petugas.nama_petugas=data.nama_petugas')->like('data.waktu_pelaksanaan', $pelaksanaan)->get()->getResultArray();
+			$data = [
+				'tittle' => 'Homepage | Simodis',
+				//'isi' => $isi,
+				'databulan' => $databulan,
+				'namabulan' => $namabulan,
+				'querybulan' => $querybulan,
+				'pelaksanaan' => $pelaksanaan
+			];
+			echo view('layout/header', $data);
+			echo view('layout/sidebar');
+			echo view('layout/topbar', $data);
+			echo view('home/home', $data);
+			echo view('layout/footer');
+		} else {
+			$default = 'JANUARI';
+			$querybulan = $build->join('petugas', 'petugas.nama_petugas=data.nama_petugas')->like('data.waktu_pelaksanaan', $default)->get()->getResultArray();
+			$data = [
+				'tittle' => 'Homepage | Simodis',
+				'databulan' => $databulan,
+				'namabulan' => $namabulan,
+				'querybulan' => $querybulan,
+				'pelaksanaan' => $default
+			];
+			echo view('layout/header', $data);
+			echo view('layout/sidebar');
+			echo view('layout/topbar', $data);
+			echo view('home/home', $data);
+			echo view('layout/footer');
+		}
 	}
 
 

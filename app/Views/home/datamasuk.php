@@ -37,7 +37,7 @@
                                 <label>Pelaksanaan</label>
                                 <select class="form-control <?= ($validation->hasError('pelaksanaan')) ? 'is-invalid' : ''; ?>" id="pelaksanaan" name="pelaksanaan" placeholder="Waktu Pelaksanaan">
                                     <option disabled selected>Bulan pelaksanaan</option>
-                                    <option value=" JANUARI">JANUARI</option>
+                                    <option value="JANUARI">JANUARI</option>
                                     <option value="FEBRUARI">FEBRUARI</option>
                                     <option value="MARET">MARET</option>
                                     <option value="APRIL">APRIL</option>
