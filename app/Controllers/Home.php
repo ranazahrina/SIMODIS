@@ -72,6 +72,7 @@ class Home extends BaseController
 		$okt = 0;
 		$nov = 0;
 		$des = 0;
+
 		foreach ($tabeldata as $k) {
 			if ($k['waktu_pelaksanaan'] == 'JANUARI') {
 				$jan++;
@@ -105,12 +106,9 @@ class Home extends BaseController
 			'NOV' => $nov, 'DES' => $des
 		);
 
-		// $query=$this->databasesurvey->findAll();
-		// $gabung=$query->join
 		$db      = \Config\Database::connect();
 		$builder = $db->table('data');
 		$gabung = $builder->join('petugas', 'petugas.nama_petugas=data.nama_petugas')->get()->getResultArray();
-
 
 		$pelaksanaan = $request->getVar('pelaksanaan');
 
@@ -312,7 +310,7 @@ class Home extends BaseController
 		if ($checkbyapa != null && $checkjenis != null) {
 			if ($checkbyapa == "petugas") {
 				$querypetugas = $build2->join('petugas', 'petugas.nama_petugas=data.nama_petugas')->like('data.jenis_survey', $checkjenis)->get()->getResultArray();
-				dd($querypetugas);
+				//dd($querypetugas);
 				$barispertama = $querypetugas[0];
 
 

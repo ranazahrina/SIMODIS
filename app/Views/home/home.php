@@ -67,13 +67,28 @@
 <?php
 $varpetugas = null;
 foreach ($querybulan as $i) {
-  if ($i['nama_petugas'] != $varpetugas) {
+  if ($i['nama_petugas'] != $varpetugas ) {
     $namapetugas[] = $i['nama_petugas'];
-    $realisasi[] = $i['realisasi'];
-    $target[] = $i['target'];
     $varpetugas = $i['nama_petugas'];
   }
 }
+
+foreach ($namapetugas as $j) {
+  $targetCount = 0;
+  $realisasiCount = 0;
+  foreach ($querybulan as $k) {
+    if ($j == $k['nama_petugas']) {
+      $targetCount++;
+    }
+
+    if ($j == $k['nama_petugas'] && $k['dokumen_masuk'] != null) {
+      $realisasiCount++;
+    }
+  }
+  $realisasi[] =$realisasiCount;
+  $target[] = $targetCount;
+}
+
 ?>
 
 <?php foreach ($querybulan as $c) {
@@ -97,7 +112,7 @@ foreach ($querybulan as $i) {
       data: {
         labels: <?php echo json_encode($namapetugas)  ?>,
         datasets: [{
-          label: 'Realisasi memenuhi target',
+          label: 'Realisasi',
           data: <?php echo json_encode($realisasi) ?>,
           backgroundColor: <?php echo json_encode($warnarealisasi) ?>
         }]

@@ -109,7 +109,7 @@ class Survei extends BaseController
 
 
 
-        // ini nambahin data petugas target 
+        // ini nambahin data petugas target
 
         if ($query == null) {
             $this->datapetugas->save([
@@ -360,7 +360,7 @@ class Survei extends BaseController
 
 
 
-        // ini nambahin data petugas target 
+        // ini nambahin data petugas target
 
         if ($query == null) {
             $this->datapetugas->save([
