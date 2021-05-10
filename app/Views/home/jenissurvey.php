@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    <h1 class="mt-2">Input Jenis Survey</h1>
+    <h1 class="mt-2">Tambah Jenis Survey</h1>
     <div id="content">
         <div class="container-jenis" style="margin-top: 30px">
             <div class="col-md-12">
