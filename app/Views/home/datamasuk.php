@@ -4,6 +4,13 @@
             <div class="col">
                 <h1 class="mt-2">Penambahan Data</h1>
                 <div class="container-tambahdata">
+                    <div class="col-md-4" left="37%">
+                        <?php if (session()->getFlashdata('nambah')) : ?>
+                            <div class="alert alert-success" role="alert">
+                                <?= session()->getFlashdata('nambah'); ?>
+                            </div>
+                        <?php endif; ?>
+                    </div>
                     <a href="jenissurvey" class="btn btn-md btn-warning">Tambah Jenis Survey</a>
                     <h1 class="mt-2"></h1>
                     <form action="/survei/save" method="post">
@@ -24,7 +31,7 @@
                             <div class="col-md-2">
                                 <label>Waktu Survey</label>
                                 <select class="form-control <?= ($validation->hasError('waktu_s')) ? 'is-invalid' : ''; ?>" id="waktu_s" name="waktu_s" placeholder="Waktu Survey">
-                                    <option disabled selected>Waktu pelaksanaan</option>
+                                    <option disabled selected>Waktu Survey</option>
                                     <option value="Bulanan">Bulanan</option>
                                     <option value="Triwulan">Triwulan</option>
                                     <option value="Tahunan">Tahunan</option>
@@ -97,13 +104,6 @@
                 <?php if (session()->getFlashdata('editdata')) : ?>
                     <div class="alert alert-success" role="alert">
                         <?= session()->getFlashdata('editdata'); ?>
-                    </div>
-                <?php endif; ?>
-            </div>
-            <div class="col-md-4">
-                <?php if (session()->getFlashdata('nambah')) : ?>
-                    <div class="alert alert-success" role="alert">
-                        <?= session()->getFlashdata('nambah'); ?>
                     </div>
                 <?php endif; ?>
             </div>

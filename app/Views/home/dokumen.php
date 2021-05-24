@@ -18,7 +18,7 @@
                         <div class="col-md-2">
                             <label>Waktu Survey : </label>
                             <select class="form-control" id="category_name" name="waktu_pelaksanaan" onchange="this.form.submit()">
-                                <option disabled selected>Waktu pelaksanaan</option>
+                                <option disabled selected>Waktu Survey</option>
                                 <option value="Bulanan">Bulanan</option>
                                 <option value="Triwulan">Triwulan</option>
                                 <option value="Tahunan">Tahunan</option>
