@@ -70,10 +70,6 @@ $warnarealisasi = null;
 $varpetugas = null;
 $namapetugas[] = null;
 foreach ($querybulan as $i) {
-<<<<<<< HEAD
-
-=======
->>>>>>> 3b401142f5791e7ba630c9b32349950e11f93101
   if ($i['nama_petugas'] != $varpetugas) {
     $namapetugas[] = $i['nama_petugas'];
     $varpetugas = $i['nama_petugas'];
