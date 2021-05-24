@@ -148,7 +148,7 @@
                                         <form action="/survei/<?= $k['id']; ?>" method="post" class="d-inline">
                                             <?= csrf_field(); ?>
                                             <input type="hidden" name="_method" value="DELETE">
-                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                            <button type="submit" class="btn btn-danger">Hapus</button>
 
                                         </form>
                                         <!-- <a href="/survei/delete/" class="btn btn-danger">Delete </a> -->
