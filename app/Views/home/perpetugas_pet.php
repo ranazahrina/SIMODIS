@@ -39,110 +39,107 @@
                     </form>
                 </div>
             </div>
-            <div class="card shadow mb-4" width="full">
-                <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">By Petugas</h6>
-                </div>
-                <div class="card-body">
-                    <div class="table">
-                        <table class="table table-bordered table-striped table-hover" id="dataTable" width="100%" cellspacing="0" overflow="auto" text-align="center">
-                            <thead>
-                                <tr>
-                                    <th rowspan="2">No</th>
-                                    <th rowspan="2">Jenis survey</th>
-                                    <th rowspan="2">Petugas</th>
-                                    <th colspan="2">JANUARI</th>
-                                    <th colspan="2">FEBRUARI</th>
-                                    <th colspan="2">MARET</th>
-                                    <th colspan="2">APRIL</th>
-                                    <th colspan="2">MEI</th>
-                                    <th colspan="2">JUNI</th>
-                                    <th colspan="2">JULI</th>
-                                    <th colspan="2">AGUSTUS</th>
-                                    <th colspan="2">SEPTEMBER</th>
-                                    <th colspan="2">OKTOBER</th>
-                                    <th colspan="2">NOVEMBER</th>
-                                    <th colspan="2">DESEMBER</th>
-                                </tr>
 
-                                <tr>
-                                    <th scope="col">Target</th>
-                                    <th scope="col">Realisasi</th>
-                                    <th scope="col">Target</th>
-                                    <th scope="col">Realisasi</th>
-                                    <th scope="col">Target</th>
-                                    <th scope="col">Realisasi</th>
-                                    <th scope="col">Target</th>
-                                    <th scope="col">Realisasi</th>
-                                    <th scope="col">Target</th>
-                                    <th scope="col">Realisasi</th>
-                                    <th scope="col">Target</th>
-                                    <th scope="col">Realisasi</th>
-                                    <th scope="col">Target</th>
-                                    <th scope="col">Realisasi</th>
-                                    <th scope="col">Target</th>
-                                    <th scope="col">Realisasi</th>
-                                    <th scope="col">Target</th>
-                                    <th scope="col">Realisasi</th>
-                                    <th scope="col">Target</th>
-                                    <th scope="col">Realisasi</th>
-                                    <th scope="col">Target</th>
-                                    <th scope="col">Realisasi</th>
-                                    <th scope="col">Target</th>
-                                    <th scope="col">Realisasi</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php $i = 1;
-                                $varpetugas = null;
-                                $varrealisasi = null;
-                                ?>
-                                <tr>
+            <div class="card-body">
+                <div class="table">
+                    <table class="table table-bordered table-striped table-hover" id="dataTable" width="100%" cellspacing="0" overflow="auto" text-align="center">
+                        <thead>
+                            <tr>
+                                <th rowspan="2">No</th>
+                                <th rowspan="2">Jenis survey</th>
+                                <th rowspan="2">Petugas</th>
+                                <th colspan="2">JANUARI</th>
+                                <th colspan="2">FEBRUARI</th>
+                                <th colspan="2">MARET</th>
+                                <th colspan="2">APRIL</th>
+                                <th colspan="2">MEI</th>
+                                <th colspan="2">JUNI</th>
+                                <th colspan="2">JULI</th>
+                                <th colspan="2">AGUSTUS</th>
+                                <th colspan="2">SEPTEMBER</th>
+                                <th colspan="2">OKTOBER</th>
+                                <th colspan="2">NOVEMBER</th>
+                                <th colspan="2">DESEMBER</th>
+                            </tr>
 
-                                    <?php foreach ($petugas as $k) : ?>
-                                        <?php if ($k['nama_petugas'] != $varpetugas) : ?>
-                                <tr>
+                            <tr>
+                                <th scope="col">Target</th>
+                                <th scope="col">Realisasi</th>
+                                <th scope="col">Target</th>
+                                <th scope="col">Realisasi</th>
+                                <th scope="col">Target</th>
+                                <th scope="col">Realisasi</th>
+                                <th scope="col">Target</th>
+                                <th scope="col">Realisasi</th>
+                                <th scope="col">Target</th>
+                                <th scope="col">Realisasi</th>
+                                <th scope="col">Target</th>
+                                <th scope="col">Realisasi</th>
+                                <th scope="col">Target</th>
+                                <th scope="col">Realisasi</th>
+                                <th scope="col">Target</th>
+                                <th scope="col">Realisasi</th>
+                                <th scope="col">Target</th>
+                                <th scope="col">Realisasi</th>
+                                <th scope="col">Target</th>
+                                <th scope="col">Realisasi</th>
+                                <th scope="col">Target</th>
+                                <th scope="col">Realisasi</th>
+                                <th scope="col">Target</th>
+                                <th scope="col">Realisasi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php $i = 1;
+                            $varpetugas = null;
+                            $varrealisasi = null;
+                            ?>
+                            <tr>
 
-                                    <th scope="row"><?= $i++; ?></th>
-                                    <td><?= $k['jenis_survey']; ?></td>
-                                    <td><?= $k['nama_petugas']; ?>
-                                        <?php $varpetugas = $k['nama_petugas']; ?></td>
-                                    <td><?= $k['target']; ?></td>
-                                    <td><?= $k['realisasi']; ?></td>
-                                    <?php $varrealisasi = $k['realisasi']; ?>
-                                    <td><?= $k['target']; ?></td>
-                                    <td><?= $k['realisasi']; ?></td>
-                                    <td><?= $k['target']; ?></td>
-                                    <td><?= $k['realisasi']; ?></td>
-                                    <td><?= $k['target']; ?></td>
-                                    <td><?= $k['realisasi']; ?></td>
-                                    <td><?= $k['target']; ?></td>
-                                    <td><?= $k['realisasi']; ?></td>
-                                    <td><?= $k['target']; ?></td>
-                                    <td><?= $k['realisasi']; ?></td>
-                                    <td><?= $k['target']; ?></td>
-                                    <td><?= $k['realisasi']; ?></td>
-                                    <td><?= $k['target']; ?></td>
-                                    <td><?= $k['realisasi']; ?></td>
-                                    <td><?= $k['target']; ?></td>
-                                    <td><?= $k['realisasi']; ?></td>
-                                    <td><?= $k['target']; ?></td>
-                                    <td><?= $k['realisasi']; ?></td>
-                                    <td><?= $k['target']; ?></td>
-                                    <td><?= $k['realisasi']; ?></td>
-                                    <td><?= $k['target']; ?></td>
-                                    <td><?= $k['realisasi']; ?></td>
-                                </tr>
+                                <?php foreach ($petugas as $k) : ?>
+                                    <?php if ($k['nama_petugas'] != $varpetugas) : ?>
+                            <tr>
 
-                            <?php endif; ?>
-                        <?php endforeach; ?>
-                        </tr>
+                                <th scope="row"><?= $i++; ?></th>
+                                <td><?= $k['jenis_survey']; ?></td>
+                                <td><?= $k['nama_petugas']; ?>
+                                    <?php $varpetugas = $k['nama_petugas']; ?></td>
+                                <td><?= $k['target']; ?></td>
+                                <td><?= $k['realisasi']; ?></td>
+                                <?php $varrealisasi = $k['realisasi']; ?>
+                                <td><?= $k['target']; ?></td>
+                                <td><?= $k['realisasi']; ?></td>
+                                <td><?= $k['target']; ?></td>
+                                <td><?= $k['realisasi']; ?></td>
+                                <td><?= $k['target']; ?></td>
+                                <td><?= $k['realisasi']; ?></td>
+                                <td><?= $k['target']; ?></td>
+                                <td><?= $k['realisasi']; ?></td>
+                                <td><?= $k['target']; ?></td>
+                                <td><?= $k['realisasi']; ?></td>
+                                <td><?= $k['target']; ?></td>
+                                <td><?= $k['realisasi']; ?></td>
+                                <td><?= $k['target']; ?></td>
+                                <td><?= $k['realisasi']; ?></td>
+                                <td><?= $k['target']; ?></td>
+                                <td><?= $k['realisasi']; ?></td>
+                                <td><?= $k['target']; ?></td>
+                                <td><?= $k['realisasi']; ?></td>
+                                <td><?= $k['target']; ?></td>
+                                <td><?= $k['realisasi']; ?></td>
+                                <td><?= $k['target']; ?></td>
+                                <td><?= $k['realisasi']; ?></td>
+                            </tr>
 
-                            </tbody>
-                        </table>
-                    </div>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                    </tr>
+
+                        </tbody>
+                    </table>
                 </div>
             </div>
+
         </div>
     </div>
 </div>
