@@ -97,37 +97,48 @@
                                 $varpetugas = null;
                                 $varrealisasi = null;
                                 ?>
+                                <tr>
 
-                                <?php foreach ($petugas as $k) : ?>
-                                    <tr>
+                                    <?php foreach ($petugas as $k) : ?>
                                         <?php if ($k['nama_petugas'] != $varpetugas) : ?>
-                                            <th scope="row"><?= $i++; ?></th>
-                                            <td><?= $k['jenis_survey']; ?></td>
-                                            <td>
-                                                <?= $k['nama_petugas']; ?>
-                                                <?php $varpetugas = $k['nama_petugas']; ?></td>
-                                            <td><?= $k['target']; ?></td>
-                                            <td><?= $k['realisasi']; ?></td>
-                                            <?php $varrealisasi = $k['realisasi']; ?>
+                                <tr>
 
-                                        <?php elseif ($k['nama_petugas'] == $varpetugas && $k['realisasi'] != $varrealisasi) : ?>
-                                            <td><?= $k['target']; ?></td>
-                                            <td><?= $k['realisasi']; ?></td>
+                                    <th scope="row"><?= $i++; ?></th>
+                                    <td><?= $k['jenis_survey']; ?></td>
+                                    <td><?= $k['nama_petugas']; ?>
+                                        <?php $varpetugas = $k['nama_petugas']; ?></td>
+                                    <td><?= $k['target']; ?></td>
+                                    <td><?= $k['realisasi']; ?></td>
+                                    <?php $varrealisasi = $k['realisasi']; ?>
+                                    <td><?= $k['target']; ?></td>
+                                    <td><?= $k['realisasi']; ?></td>
+                                    <td><?= $k['target']; ?></td>
+                                    <td><?= $k['realisasi']; ?></td>
+                                    <td><?= $k['target']; ?></td>
+                                    <td><?= $k['realisasi']; ?></td>
+                                    <td><?= $k['target']; ?></td>
+                                    <td><?= $k['realisasi']; ?></td>
+                                    <td><?= $k['target']; ?></td>
+                                    <td><?= $k['realisasi']; ?></td>
+                                    <td><?= $k['target']; ?></td>
+                                    <td><?= $k['realisasi']; ?></td>
+                                    <td><?= $k['target']; ?></td>
+                                    <td><?= $k['realisasi']; ?></td>
+                                    <td><?= $k['target']; ?></td>
+                                    <td><?= $k['realisasi']; ?></td>
+                                    <td><?= $k['target']; ?></td>
+                                    <td><?= $k['realisasi']; ?></td>
+                                    <td><?= $k['target']; ?></td>
+                                    <td><?= $k['realisasi']; ?></td>
+                                    <td><?= $k['target']; ?></td>
+                                    <td><?= $k['realisasi']; ?></td>
+                                </tr>
 
-                                            <?php $varrealisasi = $k['realisasi']; ?>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                        </tr>
 
-                                        <?php endif; ?>
-
-
-
-
-
-                                    </tr>
-
-
-
-
-                                <?php endforeach; ?>
+                            </tbody>
                         </table>
                     </div>
                 </div>

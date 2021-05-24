@@ -69,12 +69,12 @@ class Survei extends BaseController
                 'errors' => [
                     'required' => 'Kolom ini harus diisi'
                 ]
-            ],
+            ]
         ])) {
             $validation = \Config\Services::validation();
 
+
             return redirect()->to('/home/datamasuk')->withInput()->with('validation', $validation);
-            // return redirect()->to('/komik/create')->withInput();
         }
 
 

@@ -116,7 +116,6 @@ class Home extends BaseController
 			$querybulan = $build->join('petugas', 'petugas.nama_petugas=data.nama_petugas')->like('data.waktu_pelaksanaan', $pelaksanaan)->get()->getResultArray();
 			$data = [
 				'tittle' => 'Homepage | Simodis',
-				//'isi' => $isi,
 				'databulan' => $databulan,
 				'namabulan' => $namabulan,
 				'querybulan' => $querybulan,
@@ -148,6 +147,7 @@ class Home extends BaseController
 
 	public function datamasuk()
 	{
+
 		$db      = \Config\Database::connect();
 		$builder = $db->table('data');
 		$request = service('request');
@@ -310,17 +310,12 @@ class Home extends BaseController
 		if ($checkbyapa != null && $checkjenis != null) {
 			if ($checkbyapa == "petugas") {
 				$querypetugas = $build2->join('petugas', 'petugas.nama_petugas=data.nama_petugas')->like('data.jenis_survey', $checkjenis)->get()->getResultArray();
-				//dd($querypetugas);
-				$barispertama = $querypetugas[0];
-
-
 
 				$data = [
 					'tittle' => 'Per Survey | Simodis',
 					'survey' => $survey,
 					'petugas' => $querypetugas,
-					'jenissurvei' => $checkjenis,
-					'barispertama' => $barispertama
+					'jenissurvei' => $checkjenis
 
 				];
 				echo view('layout/header', $data);

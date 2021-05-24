@@ -65,9 +65,12 @@
 
 
 <?php
+$warnarealisasi = null;
 $varpetugas = null;
+$namapetugas[] = null;
 foreach ($querybulan as $i) {
-  if ($i['nama_petugas'] != $varpetugas ) {
+
+  if ($i['nama_petugas'] != $varpetugas) {
     $namapetugas[] = $i['nama_petugas'];
     $varpetugas = $i['nama_petugas'];
   }
@@ -85,7 +88,7 @@ foreach ($namapetugas as $j) {
       $realisasiCount++;
     }
   }
-  $realisasi[] =$realisasiCount;
+  $realisasi[] = $realisasiCount;
   $target[] = $targetCount;
 }
 
