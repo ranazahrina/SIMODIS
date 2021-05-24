@@ -172,11 +172,13 @@ class Survei extends BaseController
                         'target' => $row->target - 1
                     ]);
                 }
+            } else {
+                $this->data->delete($id);
             }
         }
 
         $cekdata = $this->datapetugas->find($pk);
-        // dd($cekdata);
+
 
         if ($cekdata == null) {
             $this->data->delete($id);
@@ -348,11 +350,7 @@ class Survei extends BaseController
             'nama_petugas' => $request->getVar('nama_petugas')
         ]);
 
-        foreach ($query as $row) {
-            if ($row->nama_petugas == $sebelum) {
-                $this->datapetugas->delete($row->id);
-            }
-        }
+
         $namapetugas = $request->getVar('nama_petugas');
 
         $temp1 = null;
@@ -360,8 +358,6 @@ class Survei extends BaseController
         $check = false;
         $target = 1;
         $realisasi = 0;
-
-
 
 
 
@@ -375,28 +371,25 @@ class Survei extends BaseController
             ]);
         } else {
 
-            foreach ($query as $row) {
-                if ($namapetugas == $row->nama_petugas) {
-                    $temp1 = $row->id;
-                    $temp2 = $row->target;
-
-                    $this->datapetugas->save([
-                        'id' => $temp1,
-                        'target' => $temp2 + 1
-                    ]);
-                    $check = true;
-                    break;
+            if ($namapetugas != $sebelum) {
+                foreach ($query as $row) {
+                    if ($sebelum == $row->nama_petugas) {
+                        $this->datapetugas->save([
+                            'id' => $row->id,
+                            'target' => $row->target - 1
+                        ]);
+                    }
                 }
-            }
-            if ($check == false) {
-
                 $this->datapetugas->save([
-                    'nama_petugas' => $request->getVar('nama_petugas'),
-                    'target' => $target,
-                    'realisasi' => $realisasi
+                    'nama_petugas' => $namapetugas,
+                    'realisasi' => $realisasi,
+                    'target' => $target
                 ]);
             }
         }
+
+
+
         session()->setFlashdata('editdata', 'Data berhasil diubah');
         return redirect()->to('/home/datamasuk');
     }
