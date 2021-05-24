@@ -35,7 +35,7 @@ class Survei extends BaseController
 
         return view('/home/testController', $data);
     }
-
+    //pemasukkan data survey pertama kali
 
     public function save()
     {
@@ -150,6 +150,8 @@ class Survei extends BaseController
         return redirect()->to('/home/datamasuk');
     }
 
+
+    //menghapus  survey
     public function delete($id)
     {
 
@@ -187,6 +189,8 @@ class Survei extends BaseController
         session()->setFlashdata('berhasil', 'Data berhasil dihapus');
         return redirect()->to('/home/datamasuk');
     }
+
+    //penambahan tanggal masuk survey 
     public function taksuk($id)
     {
         $request = service('request');
@@ -256,7 +260,7 @@ class Survei extends BaseController
         session()->setFlashdata('taksuk', 'Tanggal berhasil dimasukan');
         return redirect()->to('/home/dokumen');
     }
-
+    //delete dokumen masuk
     public function deletedoksuk($id)
     {
 
@@ -324,6 +328,7 @@ class Survei extends BaseController
         echo view('home/editmasuk', $data);
         echo view('layout/footer');
     }
+    //update survey atau memodifikasi survey
 
     public function update($id)
     {
