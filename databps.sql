@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 24, 2021 at 03:15 PM
+-- Generation Time: May 24, 2021 at 03:56 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -140,7 +140,8 @@ INSERT INTO `auth_logins` (`id`, `ip_address`, `email`, `user_id`, `date`, `succ
 (27, '::1', 'evi1871autentikasi@gmail.com', 1, '2021-03-24 03:04:00', 1),
 (28, '::1', 'evi1871autentikasi@gmail.com', 1, '2021-04-22 12:09:57', 1),
 (29, '::1', 'evie1817', NULL, '2021-05-24 06:38:58', 0),
-(30, '::1', 'evi1871autentikasi@gmail.com', 1, '2021-05-24 06:39:10', 1);
+(30, '::1', 'evi1871autentikasi@gmail.com', 1, '2021-05-24 06:39:10', 1),
+(31, '::1', 'evi1871autentikasi@gmail.com', 1, '2021-05-24 08:46:37', 1);
 
 -- --------------------------------------------------------
 
@@ -219,10 +220,10 @@ CREATE TABLE `data` (
 INSERT INTO `data` (`id`, `responden`, `jenis_survey`, `waktu_pelaksanaan`, `waktu_survey`, `dokumen_masuk`, `nama_petugas`, `target`, `realisasi`) VALUES
 (161, 'SIKAMPAI HOTEL', 'VHTS', 'JANUARI', 'Bulanan', '2021-02-08', 'Agus Sarjono', '', ''),
 (162, 'Andalas Permai', 'VHTS', 'JANUARI', 'Bulanan', '2021-02-04', 'Agus Sarjono', '', ''),
-(163, 'Kurnia Perdana', 'VHTS', 'JANUARI', 'Bulanan', '', 'Agus Sarjono', '', ''),
-(164, 'ASOKA LUXURY HOTEL', 'VHTS', 'JANUARI', 'Bulanan', '2021-02-09', 'Alberto M', '', ''),
-(165, 'RUMAH INAP W DAN D MAKMUR', 'VHTS', 'JANUARI', 'Bulanan', '2021-03-07', 'Alberto M', '', ''),
-(166, 'NARITA WISMA', 'VHTS', 'JANUARI', 'Bulanan', '', 'Anggi', '', ''),
+(163, 'Kurnia Perdana', 'VHTS', 'JANUARI', 'Bulanan', '2021-05-12', 'Agus Sarjono', '', ''),
+(164, 'ASOKA LUXURY HOTEL', 'VHTS', 'JANUARI', 'Bulanan', '2021-02-16', 'Alberto M', '', ''),
+(165, 'RUMAH INAP W DAN D MAKMUR', 'VHTS', 'JANUARI', 'Bulanan', '2021-03-17', 'Alberto M', '', ''),
+(166, 'NARITA WISMA', 'VHTS', 'JANUARI', 'Bulanan', '2021-05-11', 'Anggi', '', ''),
 (167, 'OMAH AKAS', 'VHTS', 'JANUARI', 'Bulanan', '2021-02-03', 'Anggi', '', ''),
 (168, 'BAMBOE IIN 2', 'VHTS', 'JANUARI', 'Bulanan', '', 'Anggi', '', ''),
 (169, '24 GUEST HOUSE DIAN AGUSTIAN', 'VHTS', 'JANUARI', 'Bulanan', '', 'Anne', '', ''),
@@ -583,7 +584,7 @@ INSERT INTO `data` (`id`, `responden`, `jenis_survey`, `waktu_pelaksanaan`, `wak
 (527, 'IRWANSYAH', 'HK-5', 'MARET', 'Bulanan', '', 'Ujang', '', ''),
 (528, 'MARUAP NAPITUPULU NY./ ELFRIDA PANJAITAN', 'HK-5', 'MARET', 'Bulanan', '', 'Ujang', '', ''),
 (529, 'A SUSANTO', 'HK-5', 'MARET', 'Bulanan', '', 'Ujang', '', ''),
-(530, 'M JAMARIL AKBAR', 'HK-5', 'MARET', 'Bulanan', '', 'Ujang', '', ''),
+(530, 'M JAMARIL AKBAR', 'HK-5', 'MARET', 'Bulanan', '2021-04-08', 'Ujang', '', ''),
 (531, 'NAZARUDDIN ALWI', 'HK-5', 'MARET', 'Bulanan', '', 'A Riadi', '', ''),
 (532, 'RIZAL ENDI', 'HK-5', 'MARET', 'Bulanan', '', 'Agus Sarjono', '', ''),
 (533, 'BUSTAM HADORI', 'HK-5', 'MARET', 'Bulanan', '', 'Edy K', '', ''),
@@ -642,36 +643,37 @@ CREATE TABLE `petugas` (
   `target` varchar(255) NOT NULL,
   `realisasi` varchar(255) NOT NULL,
   `nama_petugas` varchar(255) NOT NULL,
-  `id` int(11) NOT NULL
+  `id` int(11) NOT NULL,
+  `bulan_masuk` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `petugas`
 --
 
-INSERT INTO `petugas` (`target`, `realisasi`, `nama_petugas`, `id`) VALUES
-('4', '2', 'Alberto M', 132),
-('6', '0', 'Anggi', 133),
-('4', '0', 'Anne', 134),
-('10', '0', 'Aprilia PS', 135),
-('18', '0', 'Bagus', 136),
-('20', '1', 'Erwan', 139),
-('16', '1', 'Fahroni', 140),
-('36', '0', 'Imam T', 141),
-('58', '0', 'Indra K', 142),
-('38', '0', 'Kaisar', 143),
-('7', '0', 'Sari Citra', 144),
-('12', '0', 'Sobirin', 145),
-('8', '0', 'Sri Susi', 146),
-('14', '0', 'Tri Aprilia', 147),
-('44', '0', 'Ujang', 148),
-('8', '0', 'A Riadi', 149),
-('8', '0', 'Nanang', 150),
-('4', '0', 'A Maradona', 152),
-('7', '1', 'Agus Sarjono', 153),
-('4', '0', 'Basuki', 154),
-('17', '0', 'Edy K', 155),
-('3', '0', 'Citra', 156);
+INSERT INTO `petugas` (`target`, `realisasi`, `nama_petugas`, `id`, `bulan_masuk`) VALUES
+('4', '3', 'Alberto M', 132, 'MARET'),
+('6', '0', 'Anggi', 133, ''),
+('4', '0', 'Anne', 134, ''),
+('10', '0', 'Aprilia PS', 135, ''),
+('18', '0', 'Bagus', 136, ''),
+('20', '1', 'Erwan', 139, ''),
+('16', '1', 'Fahroni', 140, ''),
+('36', '0', 'Imam T', 141, ''),
+('58', '0', 'Indra K', 142, ''),
+('38', '0', 'Kaisar', 143, ''),
+('7', '0', 'Sari Citra', 144, ''),
+('12', '0', 'Sobirin', 145, ''),
+('8', '0', 'Sri Susi', 146, ''),
+('14', '0', 'Tri Aprilia', 147, ''),
+('44', '0', 'Ujang', 148, ''),
+('8', '0', 'A Riadi', 149, ''),
+('8', '0', 'Nanang', 150, ''),
+('4', '0', 'A Maradona', 152, ''),
+('7', '1', 'Agus Sarjono', 153, ''),
+('4', '0', 'Basuki', 154, ''),
+('17', '0', 'Edy K', 155, ''),
+('3', '0', 'Citra', 156, '');
 
 -- --------------------------------------------------------
 
@@ -835,7 +837,7 @@ ALTER TABLE `auth_groups`
 -- AUTO_INCREMENT for table `auth_logins`
 --
 ALTER TABLE `auth_logins`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `auth_permissions`
